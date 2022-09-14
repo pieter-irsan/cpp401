@@ -1,0 +1,31 @@
+﻿@model IEnumerable<OnlineCinema.Models.MovieModel>
+@{ViewBag.Title = "| My Movies";}
+
+<div class="row pt-2">
+    <h2>My Movies</h2>
+    <hr />
+</div>
+
+<div class="row row-cols-2 g-3 row-cols-md-4 g-md-3">
+    @if (Model != null)
+    {
+        foreach (var movie in Model)
+        {
+<div class="col-3">
+    <div class="card shadow-sm">
+        <div class="card-body text-center">
+            @if (movie.PosterPath != null)
+            {
+                <img src="@Url.Content(movie.PosterPath)" class="card-img-top" />
+            }
+            <h5 class="card-title">@Html.DisplayFor(modelItem => movie.Title)</h5>
+            <h6 class="card-subtitle text-muted">@Html.DisplayFor(modelItem => movie.Director)</h6>
+            <button type="button" class="form-control btn btn-success">Watch Now</button>
+        </div>
+    </div>
+</div> }
+            }
+            else
+            {
+<h3>You haven't purchased any movies yet!</h3>}
+</div>
