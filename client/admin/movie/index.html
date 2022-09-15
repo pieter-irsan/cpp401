@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Administrator Panel</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head> 
+<body>
+    <nav class="navbar navbar-light bg-white fixed-top navbar-expand-md border border-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Online Cinema</a>
+
+            <!--
+                @if (Session["Admin"] != null)
+                    <h5 class="navbar-text text-light">
+                        <i class="text-secondary">Currently logged in as: </i><b>@Session["Admin"].ToString()</b>
+                    </h5>
+            -->
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="d-md-flex justify-content-md-end">
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <div class="navbar-nav me-2 mb-lg-0">
+                        <a class="nav-item me-1 mb-1">
+
+                            <!--
+								@Html.ActionLink("Movies", "Index", "Movie", null, new { @class = "btn btn-outline-light" })
+							-->
+
+                        </a>
+                        <a class="nav-item me-1 mb-1">
+
+                            <!--
+								@Html.ActionLink("Transactions", "Index", "Purchase", null, new { @class = "btn btn-outline-light" })
+							-->
+                            
+                        </a>
+                        <a class="nav-item me-1 mb-1">
+
+                            <!--
+								@if (Session["Admin"] != null)
+                                    @Html.ActionLink("Logout", "Logout", "Admin", "", new { @class = "btn btn-outline-danger" })
+                                else
+                                    @Html.ActionLink("Login", "Login", "Admin", "", new { @class = "btn btn-outline-light" })
+							-->
+                            
+                        </a>
+                    </div>
+                    <div class="mt-1">
+                        <div class="input-group mb-1">
+                            <span class="btn btn-white border border-dark text-center">Administrator</span>
+                            <button type="submit" value="Send" class="btn btn-white border border-dark">Logout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content pt-5">
+
+        <div class="px-5">
+            <p class="pt-3"><h1>Movie Database</h1></p>
+        </div>
+
+        <hr />
+
+        <!--
+            @if (ViewBag.Success != null)
+                <div class="row">
+                    <div class="offset-md-4 col-md-4">
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>@ViewBag.Success</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </div>
+            else if (ViewBag.Alert != null)
+                <div class="row d-flex justify-content-between">
+                    <div class="offset-md-4 col-md-4">
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong>@ViewBag.Alert</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </div>
+        -->
+
+        <div class="row justify-content-between">
+            <div class="col-3">
+                <a class="btn btn-white border border-dark">Add Movie</a>
+            </div>
+            <div class="col-4">
+                <form onsubmit="window.location = '/Movie/Search/?param=' + search.value; return false;">
+                    <div class="input-group mb-1">
+                        <input id="search" type="search" name="search" class="form-control border border-dark">
+                        <button type="submit" value="Send" class="btn btn-white border border-dark">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <table class="table mt-5">
+            <tr>
+                <th>Title</th>
+                <th>Director</th>
+                <th>Synopsis</th>
+                <th>Price</th>
+                <th>Poster</th>
+                <th>Action</th>
+            </tr>
+
+            <tr>
+              <th scope="row" colspan="6" class="text-center p-5">Loading...</th>
+            </tr>
+
+            <!--
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => movie.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => movie.Director)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => movie.Synopsis)
+                    </td>
+                    <td>
+                        @Html.ValueFor(modelItem => movie.Price)
+                    </td>
+                    <td>
+                        @if (!string.IsNullOrWhiteSpace(movie.PosterPath))
+                        {
+                            <img src="@Url.Content(movie.PosterPath)" style="width:200px; height:auto;" />
+                        }
+                    </td>
+                    <td>
+                        <div>
+                            <a class="btn btn-info mb-1" href="@Url.Action("Edit", "Movie", new { id = movie.Id })">
+                                <img src="~/Content/pencil-square.svg" alt="Edit" width="19" height="19">
+                            </a>
+                            <a class="btn btn-danger" onclick="return confirm('Are you sure you want to delete?')" type="button" href="@Url.Action("Delete", "Movie", new { id = movie.Id, posterPath = movie.PosterPath })">
+                                <img src="~/Content/trash.svg" alt="Delete" width="19" height="19">
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            -->
+
+        </table>
+
+    </div>
+
+    <script src=""></script>
+</body>
+</html>
