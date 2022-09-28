@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Administrator Panel</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head> 
+<body>
+    <nav class="navbar navbar-light bg-white fixed-top navbar-expand-md border border-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Online Cinema</a>
+
+            <!--
+                @if (Session["Admin"] != null)
+                    <h5 class="navbar-text text-light">
+                        <i class="text-secondary">Currently logged in as: </i><b>@Session["Admin"].ToString()</b>
+                    </h5>
+            -->
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="d-md-flex justify-content-md-end">
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <div class="navbar-nav me-2 mb-lg-0">
+                        <a class="nav-item me-1 mb-1">
+
+                            <!--
+								@Html.ActionLink("Movies", "Index", "Movie", null, new { @class = "btn btn-outline-light" })
+							-->
+
+                        </a>
+                        <a class="nav-item me-1 mb-1">
+
+                            <!--
+								@Html.ActionLink("Transactions", "Index", "Purchase", null, new { @class = "btn btn-outline-light" })
+							-->
+                            
+                        </a>
+                        <a class="nav-item me-1 mb-1">
+
+                            <!--
+								@if (Session["Admin"] != null)
+                                    @Html.ActionLink("Logout", "Logout", "Admin", "", new { @class = "btn btn-outline-danger" })
+                                else
+                                    @Html.ActionLink("Login", "Login", "Admin", "", new { @class = "btn btn-outline-light" })
+							-->
+                            
+                        </a>
+                    </div>
+                    <div class="mt-1">
+                        <div class="input-group mb-1">
+                            <span class="btn btn-white border border-dark text-center">Administrator</span>
+                            <button type="submit" class="btn btn-white border border-dark">Logout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content pt-5">
+
+		<div class="px-5">
+            <p class="pt-3"><h1>Add Movie</h1></p>
+        </div>
+
+        <hr />
+
+		<!-- 
+			@if (ViewBag.Success != null)
+				<div class="row">
+					<div class="offset-md-4 col-md-4">
+						<div class="alert alert-success alert-dismissible fade show" role="alert">
+							<strong>@ViewBag.Success</strong>
+							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						</div>
+					</div>
+				</div>
+			else if (ViewBag.Alert != null)
+				<div class="row">
+					<div class="offset-md-4 col-md-4">
+						<div class="alert alert-warning alert-dismissible fade show" role="alert">
+							<strong>@ViewBag.Alert</strong>
+							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						</div>
+					</div>
+				</div>
+		-->
+
+		<form>
+            <div class="row justify-content-center">
+                <div class="col-3 mx-5 my-2">
+                    <label class="control-label">Title</label>
+                    <input class="form-control border border-dark">
+                </div>
+                <div class="col-3 mx-5 my-2">
+                    <label class="control-label">Poster</label>
+                    <input class="form-control border border-dark" type="file">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3 mx-5 my-2">
+                    <label class="control-label">Director</label>
+                    <input class="form-control border border-dark">
+                </div>
+                <div class="col-3 mx-5 my-2">
+                    <label class="control-label">Trailer</label>
+                    <input class="form-control border border-dark">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3 mx-5 my-2">
+                    <label class="control-label">Synopsis</label>
+                    <textarea class="form-control border border-dark"></textarea>
+                </div>
+                <div class="col-3 mx-5 my-2">
+                    <label class="control-label">Movie</label>
+                    <input class="form-control border border-dark" type="file">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3 mx-5 my-2">
+                    <label class="control-label">Price</label>
+                    <input class="form-control border border-dark">
+                </div>
+                <div class="col-3 mx-5 my-2">
+                </div>
+            </div>
+
+            <div class="row justify-content-center mt-5">
+                <a class="col-1 btn btn-white border border-dark mx-3" type="button">Back</a>
+                <a class="col-1 btn btn-white border border-dark mx-3" type="submit">Add</a>
+            </div>
+            <!-- Alternative
+            <div class="row justify-content-center mt-1">
+                <button class="col-1 btn btn-white border border-dark mx-3" type="button">Back</button>
+                <button class="col-1 btn btn-white border border-dark mx-3" type="submit">Add</button>
+            </div> -->
+            
+		</form>
+
+    </div>
+
+    <script src=""></script>
+</body>
+</html>
