@@ -14,13 +14,6 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Online Cinema</a>
 
-            <!--
-                @if (Session["Admin"] != null)
-                    <h5 class="navbar-text text-light">
-                        <i class="text-secondary">Currently logged in as: </i><b>@Session["Admin"].ToString()</b>
-                    </h5>
-            -->
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -28,28 +21,10 @@
                 <div class="collapse navbar-collapse" id="navbarContent">
                     <div class="navbar-nav me-2 mb-lg-0">
                         <a class="nav-item me-1 mb-1">
-
-                            <!--
-								@Html.ActionLink("Movies", "Index", "Movie", null, new { @class = "btn btn-outline-light" })
-							-->
-
                         </a>
-                        <a class="nav-item me-1 mb-1">
-
-                            <!--
-								@Html.ActionLink("Transactions", "Index", "Purchase", null, new { @class = "btn btn-outline-light" })
-							-->
-                            
+                        <a class="nav-item me-1 mb-1">  
                         </a>
-                        <a class="nav-item me-1 mb-1">
-
-                            <!--
-								@if (Session["Admin"] != null)
-                                    @Html.ActionLink("Logout", "Logout", "Admin", "", new { @class = "btn btn-outline-danger" })
-                                else
-                                    @Html.ActionLink("Login", "Login", "Admin", "", new { @class = "btn btn-outline-light" })
-							-->
-                            
+                        <a class="nav-item me-1 mb-1">  
                         </a>
                     </div>
                     <div class="mt-1">
@@ -107,7 +82,7 @@
             </div>
         </div>
 
-        <table class="table mt-5">
+        <table class="table mt-5" id="table">
             <tr class="text-center">
                 <th style="width: 15%;">Title</th>
                 <th style="width: 15%;">Director</th>

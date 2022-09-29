@@ -8,18 +8,12 @@
     <title>Administrator Panel</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../resources/css/style.css">
 </head> 
 <body>
     <nav class="navbar navbar-light bg-white fixed-top navbar-expand-md border border-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Online Cinema</a>
-
-            <!--
-                @if (Session["Admin"] != null)
-                    <h5 class="navbar-text text-light">
-                        <i class="text-secondary">Currently logged in as: </i><b>@Session["Admin"].ToString()</b>
-                    </h5>
-            -->
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
                 <span class="navbar-toggler-icon"></span>
@@ -28,34 +22,16 @@
                 <div class="collapse navbar-collapse" id="navbarContent">
                     <div class="navbar-nav me-2 mb-lg-0">
                         <a class="nav-item me-1 mb-1">
-
-                            <!--
-								@Html.ActionLink("Movies", "Index", "Movie", null, new { @class = "btn btn-outline-light" })
-							-->
-
                         </a>
                         <a class="nav-item me-1 mb-1">
-
-                            <!--
-								@Html.ActionLink("Transactions", "Index", "Purchase", null, new { @class = "btn btn-outline-light" })
-							-->
-                            
                         </a>
-                        <a class="nav-item me-1 mb-1">
-
-                            <!--
-								@if (Session["Admin"] != null)
-                                    @Html.ActionLink("Logout", "Logout", "Admin", "", new { @class = "btn btn-outline-danger" })
-                                else
-                                    @Html.ActionLink("Login", "Login", "Admin", "", new { @class = "btn btn-outline-light" })
-							-->
-                            
+                        <a class="nav-item me-1 mb-1">  
                         </a>
                     </div>
                     <div class="mt-1">
                         <div class="input-group mb-1">
                             <span class="btn btn-white border border-dark text-center">Administrator</span>
-                            <button type="submit" value="Send" class="btn btn-white border border-dark">Logout</button>
+                            <button class="btn btn-white border border-dark">Logout</button>
                         </div>
                     </div>
                 </div>
@@ -94,20 +70,20 @@
 
         <div class="row justify-content-between">
             <div class="col-3">
-                <a class="btn btn-white border border-dark">Total Revenue: Rp 0</a>
+                <span class="btn btn-white border border-dark">Total Revenue: Rp 0</span>
             </div>
             <div class="col-4">
                 <form onsubmit="window.location = '/Trasaction/Search/?param=' + search.value; return false;">
                     <div class="input-group mb-1">
-                        <input id="search" type="search" name="search" class="form-control border border-dark">
-                        <button type="submit" value="Send" class="btn btn-white border border-dark">Search</button>
+                        <input type="search" class="form-control border border-dark">
+                        <button type="submit" class="btn btn-white border border-dark">Search</button>
                     </div>
                 </form>
             </div>
         </div>
 
-        <table class="table mt-5">
-            <tr class="text-center">
+        <table class="table text-center mt-4" id="table">
+            <tr>
                 <th style="width: 10%;">ID</th>
                 <th style="width: 20%;">Username</th>
                 <th style="width: 20%;">Title</th>
@@ -115,34 +91,64 @@
                 <th style="width: 30%;">Time of Purchase</th>
             </tr>
 
-            <tr>
+            <!-- <tr>
               <th scope="row" colspan="6" class="text-center p-5">Loading...</th>
-            </tr>
+            </tr> -->
 
-            <!--
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => purchase.Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => purchase.Username)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => purchase.Title)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => purchase.Price)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => purchase.Time)
-                    </td>
-                </tr>
-            -->
+            <tr> 
+                <td class="py-3">1</td>
+                <td class="py-3">Username1</td>
+                <td class="py-3">Movie Title 1</td>
+                <td class="py-3">Rp 5,000</td>
+                <td class="py-3">Monday, 01 January 2022</td>
+            </tr>
+            <tr> 
+                <td class="py-3">1</td>
+                <td class="py-3">Username1</td>
+                <td class="py-3">Movie Title 1</td>
+                <td class="py-3">Rp 5,000</td>
+                <td class="py-3">Monday, 01 January 2022</td>
+            </tr>
+            <tr> 
+                <td class="py-3">1</td>
+                <td class="py-3">Username1</td>
+                <td class="py-3">Movie Title 1</td>
+                <td class="py-3">Rp 5,000</td>
+                <td class="py-3">Monday, 01 January 2022</td>
+            </tr>
+            <tr> 
+                <td class="py-3">1</td>
+                <td class="py-3">Username1</td>
+                <td class="py-3">Movie Title 1</td>
+                <td class="py-3">Rp 5,000</td>
+                <td class="py-3">Monday, 01 January 2022</td>
+            </tr>
+            <tr> 
+                <td class="py-3">1</td>
+                <td class="py-3">Username1</td>
+                <td class="py-3">Movie Title 1</td>
+                <td class="py-3">Rp 5,000</td>
+                <td class="py-3">Monday, 01 January 2022</td>
+            </tr>
+            <tr> 
+                <td class="py-3">1</td>
+                <td class="py-3">Username1</td>
+                <td class="py-3">Movie Title 1</td>
+                <td class="py-3">Rp 5,000</td>
+                <td class="py-3">Monday, 01 January 2022</td>
+            </tr>
+            <tr> 
+                <td class="py-3">1</td>
+                <td class="py-3">Username1</td>
+                <td class="py-3">Movie Title 1</td>
+                <td class="py-3">Rp 5,000</td>
+                <td class="py-3">Monday, 01 January 2022</td>
+            </tr>
 
         </table>
 
     </div>
 
-    <script src=""></script>
+    <script src="index.js"></script>
 </body>
 </html>
