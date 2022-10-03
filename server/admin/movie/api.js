@@ -18,7 +18,7 @@ apiv1.get('/users', function(req, res) {
 });
 
 module.exports = apiv1;
-/** ============================================================= */ 
+/** ============================================================= */
 const getAllUser = async (request, response) => {
     pool.query('SELECT * FROM users ORDER BY age ASC', (error, results) => {
         response.status(200).json(results.rows);
