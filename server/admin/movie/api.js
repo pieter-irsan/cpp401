@@ -10,14 +10,14 @@ const pool = new Pool({
     port: 5432
 });
 
-api.get('/', function(request, result) {
+api.get('/', function(request, response) {
     pool.query('select * from movie', (error, result) => {
         if (error) response.status(500).json({ error: `${error}` });
         else response.status(200).json(result.rows);
     })
 });
 
-api.get('/:id', function(request, result) {
+api.get('/:id', function(request, response) {
     const id = parseInt(request.params.id);
     pool.query('select * from movie where id = $1', [id], (error, result) => {
         if (error) response.status(500).json({ error: `${error}` });
@@ -25,7 +25,7 @@ api.get('/:id', function(request, result) {
     })
 });
 
-api.post('/', function(request, result) {
+api.post('/', function(request, response) {
     const { name, password, age } = request.body;
     pool.query('insert into movie () values ()', [], (error, result) => {
         
@@ -34,7 +34,7 @@ api.post('/', function(request, result) {
     })
 });
 
-api.put('/:id', function(request, result) {
+api.put('/:id', function(request, response) {
     const id = parseInt(request.params.id);
     const { name, password, age } = request.body;
     pool.query('update movie set column = $value where id = $value', [], (error, result) => {
@@ -44,7 +44,7 @@ api.put('/:id', function(request, result) {
     })
 });
 
-api.delete('/:id', function(request, result) {
+api.delete('/:id', function(request, response) {
     const id = parseInt(request.params.id);
     pool.query('delete from movie where id = $1', [id], (error, result) => {
         
@@ -53,4 +53,4 @@ api.delete('/:id', function(request, result) {
     })
 });
 
-export default api;
+module.exports = api;

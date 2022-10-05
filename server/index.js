@@ -2,8 +2,8 @@ const express = require('express');
 const app = express();
 const port = 2800;
 
-const movieAPI = require('C:/Users/piete/Documents/Projects/cpp401/server/admin/transaction/api');
-// const transactionAPI = require('./server/admin/transaction/api');
+const movieAPI = require('./admin/movie/api');
+// const transactionAPI = require('./admin/transaction/api');
 
 app.use(express.json());
 
@@ -13,7 +13,7 @@ app.use('/movie', movieAPI);
 app.get('/', (request, response) => response.send('Online Cinema API'));
 
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}.`);
+    console.log(`🚀 Server is running on port ${port}.`);
 });
 
 // app.get('/users/', api.getAllUser);
