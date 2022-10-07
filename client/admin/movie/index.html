@@ -47,30 +47,9 @@
 
         <hr />
 
-        <!--
-            @if (ViewBag.Success != null)
-                <div class="row">
-                    <div class="offset-md-4 col-md-4">
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>@ViewBag.Success</strong>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    </div>
-                </div>
-            else if (ViewBag.Alert != null)
-                <div class="row d-flex justify-content-between">
-                    <div class="offset-md-4 col-md-4">
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            <strong>@ViewBag.Alert</strong>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    </div>
-                </div>
-        -->
-
         <div class="row justify-content-between">
             <div class="col-3">
-                <button class="btn btn-white border border-dark">Add Movie</button>
+                <button class="btn btn-white border border-dark" onclick="location.href='file:///C:/Users/piete/Documents/Projects/cpp401/client/admin/movie/add.html'">Add Movie</button>
             </div>
             <div class="col-4">
                 <form onsubmit="window.location = '/Movie/Search/?param=' + search.value; return false;">
@@ -82,56 +61,41 @@
             </div>
         </div>
 
-        <table class="table text-center mt-4" id="table">
-            <tr>
-                <th style="width: 15%;">Title</th>
-                <th style="width: 15%;">Director</th>
-                <th style="width: 30%;">Synopsis</th>
-                <th style="width: 15%;">Price</th>
-                <th style="width: 15%;">Poster</th>
-                <th style="width: 10%;">Action</th>
-            </tr>
-
-            <!-- <tr>
-              <th scope="row" colspan="6" class="text-center p-5">Loading...</th>
-            </tr> -->
-
-            <tr> 
-                <td class="cell-pt">Lorem Ipsum</td>
-                <td class="cell-pt">Consectetur</td>
-                <td class="cell-pt text-start">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum elit ligula, posuere a justo malesuada</td>
-                <td class="cell-pt">Rp 5,000</td>
-                <td><img style="width:150px; height:auto;" src="https://ae01.alicdn.com/kf/Hda510b54c6f143079a288919fa821cd3p/JAWS-VINTAGE-POSTER-Film-Kanvas-Cetakan-Seni-Dinding-untuk-Ruang-Tamu-Dekorasi-Kamar-Tidur.jpg_Q90.jpg_.webp"></td>
-                <td class="container position-relative">
-                    <div class="col position-absolute top-50 start-50 translate-middle">
-                        <button class="btn btn-white border border-dark w-10 h-10 my-2" onclick="showUserEditBox(object['id'])">
-                            <img src="../../../resources/icons/pencil-square.svg" alt="Edit">
-                        </button>
-                        <button class="btn btn-white border border-dark w-10 h-10 my-2" onclick="userDelete(object['id'])">
-                            <img src="../../../resources/icons/trash.svg" alt="Delete">
-                        </button>
-                    </div>
-                </td>
-            </tr>
-            <tr> 
-                <td class="cell-pt">Lorem Ipsum</td>
-                <td class="cell-pt">Consectetur</td>
-                <td class="cell-pt text-start">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum elit ligula, posuere a justo malesuada</td>
-                <td class="cell-pt">Rp 5,000</td>
-                <td><img style="width:150px; height:auto;" src="https://ae01.alicdn.com/kf/Hda510b54c6f143079a288919fa821cd3p/JAWS-VINTAGE-POSTER-Film-Kanvas-Cetakan-Seni-Dinding-untuk-Ruang-Tamu-Dekorasi-Kamar-Tidur.jpg_Q90.jpg_.webp"></td>
-                <td class="container position-relative">
-                    <div class="col position-absolute top-50 start-50 translate-middle">
-                        <button class="btn btn-white border border-dark w-10 h-10 my-2" onclick="showUserEditBox(object['id'])">
-                            <img src="../../../resources/icons/pencil-square.svg" alt="Edit">
-                        </button>
-                        <button class="btn btn-white border border-dark w-10 h-10 my-2" onclick="userDelete(object['id'])">
-                        <!-- onclick="return confirm('Are you sure you want to delete?')" -->
-                            <img src="../../../resources/icons/trash.svg" alt="Delete">
-                        </button>
-                    </div>
-                </td>
-            </tr>
-
+        <table class="table text-center mt-4">
+            <thead>
+                <tr>
+                    <th style="width: 15%;">Title</th>
+                    <th style="width: 15%;">Director</th>
+                    <th style="width: 30%;">Synopsis</th>
+                    <th style="width: 15%;">Price</th>
+                    <th style="width: 15%;">Poster</th>
+                    <th style="width: 10%;">Action</th>
+                </tr>
+            </thead>
+            <tbody id="tableData">
+                <tr>
+                    <th scope="row" colspan="6" class="text-center p-5">Loading...</th>
+                </tr>
+<!-- .
+                <tr> 
+                    <td class="cell-pt">Lorem Ipsum</td>
+                    <td class="cell-pt">Consectetur</td>
+                    <td class="cell-pt text-start">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum elit ligula, posuere a justo malesuada</td>
+                    <td class="cell-pt">Rp 5,000</td>
+                    <td><img style="width:150px; height:auto;" src="https://ae01.alicdn.com/kf/Hda510b54c6f143079a288919fa821cd3p/JAWS-VINTAGE-POSTER-Film-Kanvas-Cetakan-Seni-Dinding-untuk-Ruang-Tamu-Dekorasi-Kamar-Tidur.jpg_Q90.jpg_.webp"></td>
+                    <td class="container position-relative">
+                        <div class="col position-absolute top-50 start-50 translate-middle">
+                            <button class="btn btn-white border border-dark w-10 h-10 my-2" onclick="showUserEditBox(object['id'])">
+                                <img src="../../../resources/icons/pencil-square.svg" alt="Edit">
+                            </button>
+                            <button class="btn btn-white border border-dark w-10 h-10 my-2" onclick="userDelete(object['id'])">
+                                <img src="../../../resources/icons/trash.svg" alt="Delete">
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+. -->
+            </tbody>
         </table>
 
     </div>

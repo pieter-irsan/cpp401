@@ -47,69 +47,49 @@
 
         <hr />
 
-		<!-- 
-			@if (ViewBag.Success != null)
-				<div class="row">
-					<div class="offset-md-4 col-md-4">
-						<div class="alert alert-success alert-dismissible fade show" role="alert">
-							<strong>@ViewBag.Success</strong>
-							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-						</div>
-					</div>
-				</div>
-			else if (ViewBag.Alert != null)
-				<div class="row">
-					<div class="offset-md-4 col-md-4">
-						<div class="alert alert-warning alert-dismissible fade show" role="alert">
-							<strong>@ViewBag.Alert</strong>
-							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-						</div>
-					</div>
-				</div>
-		-->
-
-		<form>
+		<form action="#" onsubmit="return addData()">
             <div class="row justify-content-center">
                 <div class="col-3 mx-5 my-2">
                     <label class="control-label">Title</label>
-                    <input id="title" class="form-control border border-dark">
+                    <input id="title" class="form-control border border-dark" required>
                 </div>
                 <div class="col-3 mx-5 my-2">
                     <label class="control-label">Poster</label>
-                    <input id="poster" class="form-control border border-dark" type="file">
+                    <input id="poster" class="form-control border border-dark" required>
+                    <!-- <input id="poster" class="form-control border border-dark" type="file" required> -->
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-3 mx-5 my-2">
                     <label class="control-label">Director</label>
-                    <input id="director" class="form-control border border-dark">
+                    <input id="director" class="form-control border border-dark" required>
                 </div>
                 <div class="col-3 mx-5 my-2">
                     <label class="control-label">Trailer</label>
-                    <input id="trailer" class="form-control border border-dark">
+                    <input id="trailer" class="form-control border border-dark" required>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-3 mx-5 my-2">
                     <label class="control-label">Synopsis</label>
-                    <textarea id="synopsis" class="form-control border border-dark"></textarea>
+                    <textarea id="synopsis" class="form-control border border-dark" required></textarea>
                 </div>
                 <div class="col-3 mx-5 my-2">
                     <label class="control-label">Movie</label>
-                    <input id="movie" class="form-control border border-dark">
+                    <input id="movie" class="form-control border border-dark" required>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-3 mx-5 my-2">
                     <label class="control-label">Price</label>
-                    <input id="price" class="form-control border border-dark">
+                    <input id="price" class="form-control border border-dark" type="number" min="0" required>
                 </div>
                 <div class="col-3 mx-5 my-2">
                 </div>
             </div>
 
             <div class="row justify-content-center mt-5">
-                <button class="col-1 btn btn-white border border-dark mx-3">Back</button>
+                <button class="col-1 btn btn-white border border-dark mx-3" onclick="location.href='file:///C:/Users/piete/Documents/Projects/cpp401/client/admin/movie/index.html'">Back</button>
                 <button class="col-1 btn btn-white border border-dark mx-3" type="submit">Add</button>
             </div>
 		</form>

@@ -1,10 +1,9 @@
 function loadTable() {
     const req = new XMLHttpRequest();
-    req.open("GET", "");
+    req.open("GET", "http://localhost:2800/movie/");
     req.send();
     req.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
             let tableRow = ''; 
             const objects = JSON.parse(this.responseText);
             for (let object of objects) {
@@ -13,7 +12,7 @@ function loadTable() {
                         <td class="cell-pt">${object['title']}</td>
                         <td class="cell-pt">${object['director']}</td>
                         <td class="cell-pt text-start">${object['synopsis']}</td>
-                        <td class="cell-pt">Rp ${object['price']}</td>
+                        <td class="cell-pt">Rp ${object['price'].toLocaleString()}</td>
                         <td><img style="width:150px; height:auto;" src="${object['poster']}"></td>
                         <td class="container position-relative">
                             <div class="col position-absolute top-50 start-50 translate-middle">
@@ -28,7 +27,7 @@ function loadTable() {
                     </tr>
                 `;
             }
-            document.getElementById("table").innerHTML = tableRow;
+            document.getElementById("tableData").innerHTML = tableRow;
         }
     };
 }
