@@ -11,7 +11,7 @@ const pool = new Pool({
 });
 
 api.get('/', function(_, response) {
-    pool.query('select * from movie sort by id desc', (error, result) => {
+    pool.query('select * from movie order by id desc', (error, result) => {
         if (error) response.status(500).json({ error: `${error}` });
         else response.status(200).json(result.rows);
     })

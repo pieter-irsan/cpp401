@@ -1,6 +1,6 @@
-function addData() {
+function addMovie() {
 	const title = document.getElementById("title").value;
-	const director = document.getElementById("poster").value;
+	const director = document.getElementById("director").value;
 	const synopsis = document.getElementById("synopsis").value;
 	const price = document.getElementById("price").value;
 	const poster = document.getElementById("poster").value;
@@ -19,11 +19,13 @@ function addData() {
 		"trailer": trailer, 
 		"movie": movie
 	}));
-	req.onreadystatechange = () => {
-		if (req.readyState == 4 && req.status == 200) {
+	console.log(req)
+	
+	req.onreadystatechange = function() {
+		console.log(this.readyState, this.status)
+        if (this.readyState == 2 && this.status == 200) {
 			alert("Data added successfully");
-			location.href = 'file:///C:/Users/piete/Documents/Projects/cpp401/client/admin/movie/index.html';
+			return location.href = 'file:///C:/Users/piete/Documents/Projects/cpp401/client/admin/movie/index.html';
 		}
-	};
-	alert("Failed to add data!");
+	}
 }
