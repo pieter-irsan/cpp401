@@ -1,12 +1,5 @@
 const params = (new URL(document.location)).searchParams;
 const id = params.get("id");
-const form = document.getElementById("form");
-
-function handleForm(event) { 
-    event.preventDefault(); 
-} 
-
-form.addEventListener('submit', handleForm);
 
 function editMovie() {
     const title = document.getElementById("title").value;
@@ -32,7 +25,7 @@ function editMovie() {
 
     req.onreadystatechange = function() {
         console.log(this.readyState, this.status)
-        if (this.readyState == 2 && this.status == 200) {
+        if (this.readyState == 4 && this.status == 200) {
 			alert("Data updated successfully");
 			location.href = 'file:///C:/Users/piete/Documents/Projects/cpp401/client/admin/movie/index.html';
 		}
@@ -93,7 +86,7 @@ function loadEditForm(id) {
                     <button class="col-1 btn btn-white border border-dark mx-3" type="submit">Save</button>
                 </div>
             `
-            document.getElementById("form").innerHTML = formData;
+            document.getElementById("editForm").innerHTML = formData;
         }
     }
 }

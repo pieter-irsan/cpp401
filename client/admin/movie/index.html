@@ -52,9 +52,9 @@
                 <button class="btn btn-white border border-dark" onclick="location.href='file:///C:/Users/piete/Documents/Projects/cpp401/client/admin/movie/add.html'">Add Movie</button>
             </div>
             <div class="col-4">
-                <form onsubmit="window.location = '/Movie/Search/?param=' + search.value; return false;">
+                <form action="javascript:void(0)" onsubmit="searchMovie()">
                     <div class="input-group mb-1">
-                        <input type="search" class="form-control border border-dark">
+                        <input id="searchKeyword" type="search" class="form-control border border-dark">
                         <button type="submit" class="btn btn-white border border-dark">Search</button>
                     </div>
                 </form>
@@ -101,5 +101,7 @@
     </div>
 
     <script src="index.js"></script>
+    <script src="delete.js"></script>
+    <script src="search.js"></script>
 </body>
 </html>
