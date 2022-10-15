@@ -2,16 +2,11 @@ const params = (new URL(document.location)).searchParams;
 const keyword = params.get("keyword");
 
 function loadSearchTable(keyword) {
-    console.log(`1
-    1
-    1
-    1
-    1`)
     const req = new XMLHttpRequest();
     req.open("GET", "http://localhost:2800/movie/search?keyword=" + keyword);
     req.send();
     req.onreadystatechange = function() {
-        console.log(this.responseText);
+        (this.responseText);
         if (this.readyState == 4 && this.status == 200) {
             let tableRow = ''; 
             const objects = JSON.parse(this.responseText);
@@ -25,7 +20,7 @@ function loadSearchTable(keyword) {
                         <td><img style="width:150px; height:auto;" src="${object['poster']}"></td>
                         <td class="container position-relative">
                             <div class="col position-absolute top-50 start-50 translate-middle">
-                                <button class="btn btn-white border border-dark w-10 h-10 my-2" onclick="loadEditForm(${object['id']})">
+                                <button class="btn btn-white border border-dark w-10 h-10 my-2" onclick="location.href='file:///C:/Users/piete/Documents/Projects/cpp401/client/admin/movie/edit.html?id=${object['id']}'">
                                     <img src="../../../resources/icons/pencil-square.svg" alt="Edit">
                                 </button>
                                 <button class="btn btn-white border border-dark w-10 h-10 my-2" onclick="deleteMovie(${object['id']})">
@@ -36,7 +31,7 @@ function loadSearchTable(keyword) {
                     </tr>
                 `;
             }
-            document.getElementById("table").innerHTML = tableRow;
+            document.getElementById("tableSearchData").innerHTML = tableRow;
         }
     }
 }

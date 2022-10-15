@@ -34,7 +34,7 @@ function editMovie() {
 
 function loadEditForm(id) {
     const req = new XMLHttpRequest();
-    req.open("GET", "http://localhost:2800/movie/" + id);
+    req.open("GET", "http://localhost:2800/movie/detail/" + id);
     req.send();
     req.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {

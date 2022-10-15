@@ -17,7 +17,7 @@ api.get('/', function(_, response) {
     });
 });
 
-api.get('/:id', function(request, response) {
+api.get('/detail/:id', function(request, response) {
     const id = parseInt(request.params.id);
     pool.query('select * from movie where id = $1', [id], (error, result) => {
         if (error) response.status(500).json({ error: error });
@@ -50,13 +50,12 @@ api.delete('/:id', function(request, response) {
     });
 });
 
-// api.get('/search', function(request, response) {
-//     const keyword = request.query;
-//     console.log(keyword); console.log(request.query)
-//     pool.query("select * from movie where title ilike '%$1%' or director ilike '%$1%'", [keyword], (error, result) => {
-//         if (error) response.status(500).json({ error: error });
-//         else response.status(200).json(result.rows)
-//     });
-// });
+api.get('/search', function(request, response) {
+    const keyword = request.query.keyword;
+    pool.query("select * from movie where title ilike '%'||$1||'%' or director ilike '%'||$1||'%'", [keyword], (error, result) => {
+        if (error) response.status(500).json({ error: error });
+        else response.status(200).json(result.rows)
+    });
+});
 
 module.exports = api;
