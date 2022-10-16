@@ -13,7 +13,7 @@
 <body>
     <nav class="navbar navbar-light bg-white fixed-top navbar-expand-md border border-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Online Cinema</a>
+            <a class="navbar-brand" href="file:///C:/Users/piete/Documents/Projects/cpp401/client/admin/index.html">Online Cinema</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
                 <span class="navbar-toggler-icon"></span>
@@ -47,108 +47,91 @@
 
         <hr />
 
-        <!--
-            @if (ViewBag.Success != null)
-                <div class="row">
-                    <div class="offset-md-4 col-md-4">
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>@ViewBag.Success</strong>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    </div>
-                </div>
-            else if (ViewBag.Alert != null)
-                <div class="row d-flex justify-content-between">
-                    <div class="offset-md-4 col-md-4">
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            <strong>@ViewBag.Alert</strong>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    </div>
-                </div>
-        -->
-
         <div class="row justify-content-between">
             <div class="col-3">
-                <span class="btn btn-white border border-dark">Total Revenue: Rp 0</span>
+                <span class="btn btn-white border border-dark" id="totalRevenueInfo">Total Revenue: &nbsp&nbspLoading...</span>
             </div>
             <div class="col-4">
-                <form onsubmit="window.location = '/Trasaction/Search/?param=' + search.value; return false;">
+                <form action="javascript:void(0)" onsubmit="searchTransaction()">
                     <div class="input-group mb-1">
-                        <input type="search" class="form-control border border-dark">
+                        <input id="searchKeyword" class="form-control border border-dark" required>
                         <button type="submit" class="btn btn-white border border-dark">Search</button>
                     </div>
                 </form>
             </div>
         </div>
 
-        <table class="table text-center mt-4" id="table">
-            <tr>
-                <th style="width: 10%;">ID</th>
-                <th style="width: 20%;">Username</th>
-                <th style="width: 20%;">Title</th>
-                <th style="width: 15%;">Price</th>
-                <th style="width: 30%;">Time of Purchase</th>
-            </tr>
-
-            <!-- <tr>
-              <th scope="row" colspan="6" class="text-center p-5">Loading...</th>
-            </tr> -->
-
-            <tr> 
-                <td class="py-3">1</td>
-                <td class="py-3">Username1</td>
-                <td class="py-3">Movie Title 1</td>
-                <td class="py-3">Rp 5,000</td>
-                <td class="py-3">Monday, 01 January 2022</td>
-            </tr>
-            <tr> 
-                <td class="py-3">1</td>
-                <td class="py-3">Username1</td>
-                <td class="py-3">Movie Title 1</td>
-                <td class="py-3">Rp 5,000</td>
-                <td class="py-3">Monday, 01 January 2022</td>
-            </tr>
-            <tr> 
-                <td class="py-3">1</td>
-                <td class="py-3">Username1</td>
-                <td class="py-3">Movie Title 1</td>
-                <td class="py-3">Rp 5,000</td>
-                <td class="py-3">Monday, 01 January 2022</td>
-            </tr>
-            <tr> 
-                <td class="py-3">1</td>
-                <td class="py-3">Username1</td>
-                <td class="py-3">Movie Title 1</td>
-                <td class="py-3">Rp 5,000</td>
-                <td class="py-3">Monday, 01 January 2022</td>
-            </tr>
-            <tr> 
-                <td class="py-3">1</td>
-                <td class="py-3">Username1</td>
-                <td class="py-3">Movie Title 1</td>
-                <td class="py-3">Rp 5,000</td>
-                <td class="py-3">Monday, 01 January 2022</td>
-            </tr>
-            <tr> 
-                <td class="py-3">1</td>
-                <td class="py-3">Username1</td>
-                <td class="py-3">Movie Title 1</td>
-                <td class="py-3">Rp 5,000</td>
-                <td class="py-3">Monday, 01 January 2022</td>
-            </tr>
-            <tr> 
-                <td class="py-3">1</td>
-                <td class="py-3">Username1</td>
-                <td class="py-3">Movie Title 1</td>
-                <td class="py-3">Rp 5,000</td>
-                <td class="py-3">Monday, 01 January 2022</td>
-            </tr>
-
+        <table class="table text-center mt-4">
+            <thead>
+                <tr>
+                    <th style="width: 10%;">ID</th>
+                    <th style="width: 20%;">Username</th>
+                    <th style="width: 20%;">Title</th>
+                    <th style="width: 15%;">Price</th>
+                    <th style="width: 30%;">Time of Purchase</th>
+                </tr>
+            </thead>
+            <tbody id="transactionTable">
+                <tr>
+                    <th scope="row" colspan="6" class="text-center p-5">Loading...</th>
+                </tr>
+<!--
+                <tr> 
+                    <td class="py-3">1</td>
+                    <td class="py-3">Username1</td>
+                    <td class="py-3">Movie Title 1</td>
+                    <td class="py-3">Rp 5,000</td>
+                    <td class="py-3">Monday, 01 January 2022</td>
+                </tr>
+                <tr> 
+                    <td class="py-3">1</td>
+                    <td class="py-3">Username1</td>
+                    <td class="py-3">Movie Title 1</td>
+                    <td class="py-3">Rp 5,000</td>
+                    <td class="py-3">Monday, 01 January 2022</td>
+                </tr>
+                <tr> 
+                    <td class="py-3">1</td>
+                    <td class="py-3">Username1</td>
+                    <td class="py-3">Movie Title 1</td>
+                    <td class="py-3">Rp 5,000</td>
+                    <td class="py-3">Monday, 01 January 2022</td>
+                </tr>
+                <tr> 
+                    <td class="py-3">1</td>
+                    <td class="py-3">Username1</td>
+                    <td class="py-3">Movie Title 1</td>
+                    <td class="py-3">Rp 5,000</td>
+                    <td class="py-3">Monday, 01 January 2022</td>
+                </tr>
+                <tr> 
+                    <td class="py-3">1</td>
+                    <td class="py-3">Username1</td>
+                    <td class="py-3">Movie Title 1</td>
+                    <td class="py-3">Rp 5,000</td>
+                    <td class="py-3">Monday, 01 January 2022</td>
+                </tr>
+                <tr> 
+                    <td class="py-3">1</td>
+                    <td class="py-3">Username1</td>
+                    <td class="py-3">Movie Title 1</td>
+                    <td class="py-3">Rp 5,000</td>
+                    <td class="py-3">Monday, 01 January 2022</td>
+                </tr>
+                <tr> 
+                    <td class="py-3">1</td>
+                    <td class="py-3">Username1</td>
+                    <td class="py-3">Movie Title 1</td>
+                    <td class="py-3">Rp 5,000</td>
+                    <td class="py-3">Monday, 01 January 2022</td>
+                </tr>
+-->
+            </tbody>
         </table>
 
     </div>
 
     <script src="index.js"></script>
+    <script src="search.js"></script>
 </body>
 </html>

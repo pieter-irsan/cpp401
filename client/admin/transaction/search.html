@@ -8,11 +8,12 @@
     <title>Administrator Panel</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../resources/css/style.css">
 </head> 
 <body>
     <nav class="navbar navbar-light bg-white fixed-top navbar-expand-md border border-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Online Cinema</a>
+            <a class="navbar-brand" href="file:///C:/Users/piete/Documents/Projects/cpp401/client/admin/index.html">Online Cinema</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
                 <span class="navbar-toggler-icon"></span>
@@ -30,7 +31,7 @@
                     <div class="mt-1">
                         <div class="input-group mb-1">
                             <span class="btn btn-white border border-dark text-center">Administrator</span>
-                            <button type="submit" value="Send" class="btn btn-white border border-dark">Logout</button>
+                            <button type="submit" class="btn btn-white border border-dark">Logout</button>
                         </div>
                     </div>
                 </div>
@@ -46,79 +47,40 @@
 
         <hr />
 
-        <!--
-            @if (ViewBag.Success != null)
-                <div class="row">
-                    <div class="offset-md-4 col-md-4">
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>@ViewBag.Success</strong>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    </div>
-                </div>
-            else if (ViewBag.Alert != null)
-                <div class="row d-flex justify-content-between">
-                    <div class="offset-md-4 col-md-4">
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            <strong>@ViewBag.Alert</strong>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    </div>
-                </div>
-        -->
-
         <div class="row justify-content-between">
             <div class="col-auto">
-                <a class="btn btn-white border border-dark">Total Revenue: Rp 0</a>
-				<a class="btn btn-white border border-dark ms-3">Back to List</a>
+                <span class="btn btn-white border border-dark" id="totalRevenueInfo">Total Revenue: &nbsp&nbspLoading...</span>
+				<a class="btn btn-white border border-dark ms-3" onclick="location.href='file:///C:/Users/piete/Documents/Projects/cpp401/client/admin/transaction/index.html'">Back to List</a>
             </div>
             <div class="col-4">
-                <form onsubmit="window.location = '/Trasaction/Search/?param=' + search.value; return false;">
+                <form action="javascript:void(0)" onsubmit="searchTransaction()">
                     <div class="input-group mb-1">
-                        <input id="search" type="search" name="search" class="form-control border border-dark">
-                        <button type="submit" value="Send" class="btn btn-white border border-dark">Search</button>
+                        <input id="searchKeyword" class="form-control border border-dark" required>
+                        <button type="submit" class="btn btn-white border border-dark">Search</button>
                     </div>
                 </form>
             </div>
         </div>
 
-        <table class="table mt-5" id="table">
-            <tr class="text-center">
-                <th style="width: 10%;">ID</th>
-                <th style="width: 20%;">Username</th>
-                <th style="width: 20%;">Title</th>
-                <th style="width: 15%;">Price</th>
-                <th style="width: 30%;">Time of Purchase</th>
-            </tr>
-
-            <tr>
-              <th scope="row" colspan="6" class="text-center p-5">Loading...</th>
-            </tr>
-
-            <!--
+        <table class="table text-center mt-4">
+            <thead>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => purchase.Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => purchase.Username)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => purchase.Title)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => purchase.Price)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => purchase.Time)
-                    </td>
+                    <th style="width: 10%;">ID</th>
+                    <th style="width: 20%;">Username</th>
+                    <th style="width: 20%;">Title</th>
+                    <th style="width: 15%;">Price</th>
+                    <th style="width: 30%;">Time of Purchase</th>
                 </tr>
-            -->
-
+            </thead>
+            <tbody id="transactionSearchTable">
+                <tr>
+                    <th scope="row" colspan="6" class="text-center p-5">Loading...</th>
+                </tr>
+            </tbody>
         </table>
 
     </div>
 
-    <script src=""></script>
+    <script src="search.js"></script>
 </body>
 </html>

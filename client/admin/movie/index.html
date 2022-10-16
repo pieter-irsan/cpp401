@@ -13,7 +13,7 @@
 <body>
     <nav class="navbar navbar-light bg-white fixed-top navbar-expand-md border border-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Online Cinema</a>
+            <a class="navbar-brand" href="file:///C:/Users/piete/Documents/Projects/cpp401/client/admin/index.html">Online Cinema</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
                 <span class="navbar-toggler-icon"></span>
@@ -54,7 +54,7 @@
             <div class="col-4">
                 <form action="javascript:void(0)" onsubmit="searchMovie()">
                     <div class="input-group mb-1">
-                        <input id="searchKeyword" type="search" class="form-control border border-dark">
+                        <input id="searchKeyword" class="form-control border border-dark" required>
                         <button type="submit" class="btn btn-white border border-dark">Search</button>
                     </div>
                 </form>
@@ -72,7 +72,7 @@
                     <th style="width: 10%;">Action</th>
                 </tr>
             </thead>
-            <tbody id="tableData">
+            <tbody id="movieTable">
                 <tr>
                     <th scope="row" colspan="6" class="text-center p-5">Loading...</th>
                 </tr>

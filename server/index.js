@@ -10,16 +10,16 @@ const corsOptions = {
 }
 
 const movieAPI = require('./admin/movie/api');
-// const transactionAPI = require('./admin/transaction/api');
+const transactionAPI = require('./admin/transaction/api');
 
 app.use(cors(corsOptions))
 app.use(express.json());
 
 app.use('/movie', movieAPI);
-// app.use('/transaction', transactionAPI);
+app.use('/transaction', transactionAPI);
 
 app.get('/', (_, response) => response.send('Online Cinema API'));
 
 app.listen(port, () => {
-    console.log(`🚀 Server is running on port ${port}.`);
+    console.log(`🚀 Server is running on port ${port}`);
 });

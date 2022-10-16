@@ -1,12 +1,12 @@
 const params = (new URL(document.location)).searchParams;
 const keyword = params.get("keyword");
 
-function loadSearchTable(keyword) {
+function loadMovieSearchTable(keyword) {
     const req = new XMLHttpRequest();
     req.open("GET", "http://localhost:2800/movie/search?keyword=" + keyword);
     req.send();
     req.onreadystatechange = function() {
-        (this.responseText);
+        console.log(this.responseText);
         if (this.readyState == 4 && this.status == 200) {
             let tableRow = ''; 
             const objects = JSON.parse(this.responseText);
@@ -31,7 +31,7 @@ function loadSearchTable(keyword) {
                     </tr>
                 `;
             }
-            document.getElementById("tableSearchData").innerHTML = tableRow;
+            document.getElementById("movieSearchTable").innerHTML = tableRow;
         }
     }
 }
@@ -40,4 +40,4 @@ function searchMovie() {
     location.href = 'file:///C:/Users/piete/Documents/Projects/cpp401/client/admin/movie/search.html?keyword=' + document.getElementById("searchKeyword").value;
 }
 
-loadSearchTable(keyword);
+loadMovieSearchTable(keyword);

@@ -1,4 +1,4 @@
-function loadTable() {
+function loadMovieTable() {
     const req = new XMLHttpRequest();
     req.open("GET", "http://localhost:2800/movie/");
     req.send();
@@ -28,9 +28,9 @@ function loadTable() {
                     </tr>
                 `;
             }
-            document.getElementById("tableData").innerHTML = tableRow;
+            document.getElementById("movieTable").innerHTML = tableRow;
         }
     }
 }
 
-loadTable();
+loadMovieTable();
