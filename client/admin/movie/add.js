@@ -24,7 +24,7 @@ function addMovie() {
 		console.log(this.readyState, this.status)
         if (this.readyState == 4 && this.status == 200) {
 			alert("Data added successfully");
-			return location.href = 'file:///C:/Users/piete/Documents/Projects/cpp401/client/admin/movie/index.html';
+			return location.href = '/admin/movie/index.html';
 		}
 	}
 }

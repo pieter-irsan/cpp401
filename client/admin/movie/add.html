@@ -8,12 +8,12 @@
     <title>Administrator Panel</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../../resources/css/style.css">
+    <link rel="stylesheet" href="/resources/css/style.css">
 </head> 
 <body>
     <nav class="navbar navbar-light bg-white fixed-top navbar-expand-md border border-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="file:///C:/Users/piete/Documents/Projects/cpp401/client/admin/index.html">Online Cinema</a>
+            <a class="navbar-brand" href="/admin/home/index.html">Online Cinema</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
                 <span class="navbar-toggler-icon"></span>
@@ -31,7 +31,7 @@
                     <div class="mt-1">
                         <div class="input-group mb-1">
                             <span class="btn btn-white border border-dark text-center">Administrator</span>
-                            <button type="submit" class="btn btn-white border border-dark">Logout</button>
+                            <button onclick="logoutAdmin()" type="submit" class="btn btn-white border border-dark">Logout</button>
                         </div>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
             </div>
 
             <div class="row justify-content-center mt-5">
-                <button class="col-1 btn btn-white border border-dark mx-3" onclick="location.href='file:///C:/Users/piete/Documents/Projects/cpp401/client/admin/movie/index.html'">Back</button>
+                <button class="col-1 btn btn-white border border-dark mx-3" onclick="location.href='/admin/movie/index.html'">Back</button>
                 <button class="col-1 btn btn-white border border-dark mx-3" type="submit">Add</button>
             </div>
 		</form>
@@ -97,5 +97,6 @@
     </div>
 
     <script src="add.js"></script>
+    <script src="/resources/js/logout.js"></script>
 </body>
 </html>

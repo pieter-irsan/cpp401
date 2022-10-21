@@ -27,7 +27,7 @@ function loadTransactionSearchTable(keyword) {
 }
 
 function searchTransaction() {
-    location.href = 'file:///C:/Users/piete/Documents/Projects/cpp401/client/admin/transaction/search.html?keyword=' + document.getElementById("searchKeyword").value;
+    location.href = '/admin/transaction/search.html?keyword=' + document.getElementById("searchKeyword").value;
 }
 
 function loadTotalRevenue() {

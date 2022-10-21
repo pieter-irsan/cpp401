@@ -8,12 +8,12 @@
     <title>Administrator Panel</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../../resources/css/style.css">
+    <link rel="stylesheet" href="/resources/css/style.css">
 </head> 
 <body>
     <nav class="navbar navbar-light bg-white fixed-top navbar-expand-md border border-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="file:///C:/Users/piete/Documents/Projects/cpp401/client/admin/index.html">Online Cinema</a>
+            <a class="navbar-brand" href="/admin/home/index.html">Online Cinema</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
                 <span class="navbar-toggler-icon"></span>
@@ -22,16 +22,19 @@
                 <div class="collapse navbar-collapse" id="navbarContent">
                     <div class="navbar-nav me-2 mb-lg-0">
                         <a class="nav-item me-1 mb-1">
+                            <!-- <span class="btn btn-white border border-dark"></span> -->
                         </a>
                         <a class="nav-item me-1 mb-1"> 
+                            <!-- <span class="btn btn-white border border-dark"></span> -->
                         </a>
                         <a class="nav-item me-1 mb-1">
+                            <!-- <span class="btn btn-white border border-dark"></span> -->
                         </a>
                     </div>
                     <div class="mt-1">
                         <div class="input-group mb-1">
                             <span class="btn btn-white border border-dark text-center">Administrator</span>
-                            <button class="btn btn-white border border-dark">Logout</button>
+                            <button onclick="logoutAdmin()" class="btn btn-white border border-dark">Logout</button>
                         </div>
                     </div>
                 </div>
@@ -49,7 +52,7 @@
 
         <div class="row justify-content-between">
             <div class="col-3">
-                <button class="btn btn-white border border-dark" onclick="location.href='file:///C:/Users/piete/Documents/Projects/cpp401/client/admin/movie/add.html'">Add Movie</button>
+                <button class="btn btn-white border border-dark" onclick="location.href='/admin/movie/add.html'">Add Movie</button>
             </div>
             <div class="col-4">
                 <form action="javascript:void(0)" onsubmit="searchMovie()">
@@ -76,7 +79,7 @@
                 <tr>
                     <th scope="row" colspan="6" class="text-center p-5">Loading...</th>
                 </tr>
-<!-- .
+<!--
                 <tr> 
                     <td class="cell-pt">Lorem Ipsum</td>
                     <td class="cell-pt">Consectetur</td>
@@ -94,7 +97,7 @@
                         </div>
                     </td>
                 </tr>
-. -->
+-->
             </tbody>
         </table>
 
@@ -103,5 +106,6 @@
     <script src="index.js"></script>
     <script src="delete.js"></script>
     <script src="search.js"></script>
+    <script src="/resources/js/logout.js"></script>
 </body>
 </html>

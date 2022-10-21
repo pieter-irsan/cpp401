@@ -5,7 +5,7 @@ function signToken(username) {
     return token    
 }
 
-const verifyToken = (req, res, next) => {
+const verifyAdmin = (req, res, next) => {
     console.log(req.cookies)
     const token = req.cookies.token
     if (!token) return res.status(403).redirect('/admin/auth/login.html');
@@ -20,7 +20,23 @@ const verifyToken = (req, res, next) => {
     }
 };
 
+const verifyUser = (req, res, next) => {
+    console.log(req.cookies)
+    const token = req.cookies.token
+    if (!token) return res.status(403).redirect('/auth/login.html');
+    else {
+        try {
+            const decoded = jwt.verify(token, process.env.JWT_SECRET);
+            console.log(`decoded: ${JSON.stringify(decoded)}`)
+        } catch (err) {
+            return res.status(401).redirect('/auth/login.html')
+        }
+        next();
+    }
+};
+
 module.exports = {
     signToken,
-    verifyToken
+    verifyAdmin,
+    verifyUser
 };

@@ -3,7 +3,7 @@ const cors = require('cors');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
-const { verifyToken } = require('./admin/auth/auth');
+const { verifyAdmin, verifyUser } = require('./admin/auth/auth');
 const port = 2800;
 
 const corsOptions = {
@@ -20,13 +20,16 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 
-app.use('/resources', verifyToken, express.static('../resources'));
+app.use('/resources', verifyAdmin, express.static('../resources'));
 
 // Client
-app.use('/admin/home', verifyToken, express.static('../client/admin/index'));
+app.use('/admin/home', verifyAdmin, express.static('../client/admin/index'));
 app.use('/admin/auth', express.static('../client/admin/auth'));
-app.use('/admin/movie', verifyToken, express.static('../client/admin/movie'));
-app.use('/admin/transaction', verifyToken, express.static('../client/admin/transaction'));
+app.use('/admin/movie', verifyAdmin, express.static('../client/admin/movie'));
+app.use('/admin/transaction', verifyAdmin, express.static('../client/admin/transaction'));
+
+app.use('/app', verifyUser, express.static('../client/user/app'));
+app.use('/auth', express.static('../client/user/auth'));
 
 // API
 app.use('/admin', adminAPI);

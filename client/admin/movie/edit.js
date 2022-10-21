@@ -27,7 +27,7 @@ function editMovie() {
         console.log(this.readyState, this.status)
         if (this.readyState == 4 && this.status == 200) {
 			alert("Data updated successfully");
-			location.href = 'file:///C:/Users/piete/Documents/Projects/cpp401/client/admin/movie/index.html';
+			location.href = '/admin/movie/index.html';
 		}
 	}
 }
@@ -82,7 +82,7 @@ function loadEditForm(id) {
                 </div>
 
                 <div class="row justify-content-center mt-5">
-                    <button class="col-1 btn btn-white border border-dark mx-3" onclick="location.href='file:///C:/Users/piete/Documents/Projects/cpp401/client/admin/movie/index.html'">Back</button>
+                    <button class="col-1 btn btn-white border border-dark mx-3" onclick="location.href='/admin/movie/index.html'">Back</button>
                     <button class="col-1 btn btn-white border border-dark mx-3" type="submit">Save</button>
                 </div>
             `
