@@ -1,0 +1,1 @@
+pg_dump -U postgres online_cinema > C:\Users\piete\Documents\Projects\cpp401\server\online_cinema.sql

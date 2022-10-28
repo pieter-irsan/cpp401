@@ -65,7 +65,7 @@ function loadEditForm(id) {
                 <div class="row justify-content-center">
                     <div class="col-3 mx-5 my-2">
                         <label class="control-label">Synopsis</label>
-                        <textarea id="synopsis" class="form-control border border-dark" required>${object['synopsis']}</textarea>
+                        <textarea id="synopsis" class="form-control border border-dark" maxlength="300" required>${object['synopsis']}</textarea>
                     </div>
                     <div class="col-3 mx-5 my-2">
                         <label class="control-label">Movie</label>

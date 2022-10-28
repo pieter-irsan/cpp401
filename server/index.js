@@ -20,7 +20,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 
-app.use('/resources', verifyAdmin, express.static('../resources'));
+app.use('/resources', express.static('../client/resources'));
 
 // Client
 app.use('/admin/home', verifyAdmin, express.static('../client/admin/index'));
@@ -28,7 +28,8 @@ app.use('/admin/auth', express.static('../client/admin/auth'));
 app.use('/admin/movie', verifyAdmin, express.static('../client/admin/movie'));
 app.use('/admin/transaction', verifyAdmin, express.static('../client/admin/transaction'));
 
-app.use('/app', verifyUser, express.static('../client/user/app'));
+app.use('/app', express.static('../client/user/app'));
+// app.use('/???', verifyUser, express.static('../client/user/???'));
 app.use('/auth', express.static('../client/user/auth'));
 
 // API

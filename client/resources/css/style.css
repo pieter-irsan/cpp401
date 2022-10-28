@@ -1,0 +1,32 @@
+/* Admin */
+.cell-pt {
+  padding-top: 40px !important;
+}
+
+/* User */
+.px-6 {
+  padding-right: 3.75rem !important;
+  padding-left: 3.75rem !important;
+}
+
+.px-7 {
+  padding-right: 4.75rem !important;
+  padding-left: 4.75rem !important;
+}
+
+.pt-4-half {
+  padding-top: 2.5rem !important;
+}
+
+.p-4-half {
+  padding: 2rem !important;
+}
+
+.g-4-half {
+  --bs-gutter-x: 2.25rem;
+  --bs-gutter-y: 1.5rem;
+}
+
+.fs-7 {
+  font-size: 0.95rem !important;
+}

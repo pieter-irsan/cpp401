@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<!-- Required meta tags -->
@@ -21,10 +21,10 @@
             <div class="d-md-flex justify-content-md-end">
                 <div class="collapse navbar-collapse" id="navbarContent">
                     <div class="navbar-nav me-1 mb-lg-0">
-                        <a class="nav-item mx-2 my-1">
+                        <a class="nav-item mx-2 my-1" href="/app/index.html">
                             <span class="btn btn-white border border-dark">Home</span>
                         </a>
-                        <a class="nav-item mx-2 my-1">
+                        <a class="nav-item mx-2 my-1" href="/auth/register.html">
 							<span class="btn btn-white border border-dark">Register</span>
                             <!--
 								@if (Session["User"] != null) 
@@ -33,7 +33,7 @@
 									@Html.ActionLink("Register", "Register", "User", null, new { @class = "btn btn-white border border-dark" })
 							-->
                         </a>
-                        <a class="nav-item mx-2 my-1">
+                        <a class="nav-item mx-2 my-1" href="/auth/login.html">
 							<span class="btn btn-white border border-dark">Login</span>
 							<!--
 								@if (Session["User"] != null)
@@ -56,49 +56,44 @@
     <div class="container body-content pt-5">
 
         <div class="px-5">
-            <p class="pt-3"><h1>Register to Online Cinema</h1></p>
+            <p class="pt-3"><h1>Login to Online Cinema</h1></p>
         </div>
 
         <hr />
 
         <div class="container px-5">
-            <div class="row justify-content-center" style="height: 430px;">
-                <div style="cursor: pointer" class="col-4 mb-4 rounded-3 m-4 h-100 border border-dark">
-                    <div class="container-fluid px-3 py-1">
-                        <form class="align-items-center" action="#" onsubmit="loginAdmin()">
-                            <div class="row justify-content-center">
-                                <div class="col-12 my-2">
-                                    <label class="control-label">Username</label>
-                                    <input id="username" class="form-control border border-dark" required>
-                                </div>
-                            </div>
-                            <div class="row justify-content-center">
-                                <div class="col-12 my-2">
-                                    <label class="control-label">Email</label>
-                                    <input id="email" class="form-control border border-dark" required>
-                                </div>
-                            </div>
-                            <div class="row justify-content-center">
-                                <div class="col-12 my-2">
-                                    <label class="control-label">Password</label>
-                                    <input id="password" class="form-control border border-dark" type="password" required>
-                                </div>
-                            </div>
-                            <div class="row justify-content-center">
-                                <div class="col-12 my-2">
-                                    <label class="control-label">Confirm Password</label>
-                                    <input id="confirmPassword" class="form-control border border-dark" type="password" required>
-                                </div>
-                            </div>
-                            <div class="row justify-content-center my-2">
-                                <button class="col-4 btn btn-white border border-dark" type="submit">Register</button>
-                            </div>
-                        </form>
-                    </div>                    
+            <div class="row justify-content-center" style="height: 360px;">
+                <div class="col-4 m-5 rounded-3 h-100 border border-dark">
+		   <!-- <div class="col-4 m-5 rounded-3 h-100 border border-dark bg-light bg-gradient"> -->
+                    <div class="container-fluid py-5">
+                        <form action="#" onsubmit="loginUser()">
+							<div class="row justify-content-center">
+								<div class="col-12 my-2">
+									<label class="control-label">Username</label>
+									<input id="username" class="form-control border border-dark" required>
+								</div>
+							</div>
+							<div class="row justify-content-center">
+								<div class="col-12 my-2">
+									<label class="control-label">Password</label>
+									<input id="password" class="form-control border border-dark" type="password" required>
+								</div>
+							</div>
+							<div class="row justify-content-center">
+								<div class="col-12 my-2">
+									<a class="text-muted text-decoration-none" style="cursor: pointer" href="#">Forgot password?</a>
+								</div>
+							</div>
+							<div class="row justify-content-center my-2">
+								<button class="col-4 btn btn-white border border-dark" type="submit">Login</button>
+							</div>
+						</form>
+                    </div>
                 </div>
             </div>
         </div>   
 
-	<script src=""></script>
+	<script src="login.js"></script>
+  <script src="/app/search.js"></script>
 </body>
 </html>

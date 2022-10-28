@@ -11,10 +11,19 @@ const pool = new Pool({
     port: 5432
 });
 
+api.post('/register', function(request, response) {
+    const { username, email, password } = request.body;
+    pool.query(`insert into "user" (username, email, password, user_type) values ($1, $2, $3, 'user')`, [username, email, password], (error, result) => {
+        console.log(result, 12345)
+        if (error) response.status(500).json({ error: error });
+        else response.status(200).json(result.rows);
+    });
+});
+
 api.post('/login', function(request, response) {
     const { username, password } = request.body;
-    pool.query(`select exists(select * from "user" where user_type = 'admin' and username = $1 and password = $2)`, [username, password], (error, result) => {
-        const token = auth.signToken(username, 'admin')
+    pool.query(`select exists(select * from "user" where user_type = 'user' and username = $1 and password = $2)`, [username, password], (error, result) => {
+        const token = auth.signToken(username, 'user');
         if (error) response.status(500).json({ error: error });
         if (!result.rows[0].exists) response.status(401).json({ loggedIn: result.rows[0].exists, token: null });
         else response.status(200).json({ loggedIn: result.rows[0].exists, token: token });

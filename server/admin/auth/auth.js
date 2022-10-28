@@ -1,22 +1,22 @@
 const jwt = require("jsonwebtoken");
 
-function signToken(username) {
-    const token = jwt.sign({ username: username }, process.env.JWT_SECRET)
-    return token    
+function signToken(username, userType) {
+    const token = jwt.sign({ username: username, usertype: userType }, process.env.JWT_SECRET);
+    return token;
 }
 
 const verifyAdmin = (req, res, next) => {
     console.log(req.cookies)
-    const token = req.cookies.token
+    const token = req.cookies.token;
     if (!token) return res.status(403).redirect('/admin/auth/login.html');
     else {
         try {
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
             console.log(`decoded: ${JSON.stringify(decoded)}`)
+            if (decoded.usertype == 'admin') next();
         } catch (err) {
-            return res.status(401).redirect('/admin/auth/login.html')
+            return res.status(401).redirect('/admin/auth/login.html');
         }
-        next();
     }
 };
 
@@ -28,10 +28,10 @@ const verifyUser = (req, res, next) => {
         try {
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
             console.log(`decoded: ${JSON.stringify(decoded)}`)
+            if (decoded.usertype == 'user') next();
         } catch (err) {
-            return res.status(401).redirect('/auth/login.html')
+            return res.status(401).redirect('/auth/login.html');
         }
-        next();
     }
 };
 
