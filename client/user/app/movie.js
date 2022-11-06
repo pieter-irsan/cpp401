@@ -1,7 +1,7 @@
 const params = (new URL(document.location)).searchParams;
 const id = params.get("id");
 
-function editMovie() {
+function editRating() {
     const title = document.getElementById("title").value;
 	const director = document.getElementById("director").value;
 	const synopsis = document.getElementById("synopsis").value;
@@ -32,7 +32,7 @@ function editMovie() {
 	}
 }
 
-function loadEditForm(id) {
+function loadEditRatingForm(id) {
     const req = new XMLHttpRequest();
     req.open("GET", "http://localhost:2800/movie/detail/" + id);
     req.send();
@@ -67,4 +67,6 @@ function loadEditForm(id) {
     }
 }
 
-loadEditForm(id);
+const popover = new bootstrap.Popover(document.getElementById("popover"), { trigger: 'focus' })
+
+loadEditRatingForm(id);

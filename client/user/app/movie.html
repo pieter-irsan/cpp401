@@ -56,7 +56,7 @@
     </nav>
     <div class="container body-content pt-4-half pb-5">
 
-        <div class="row mt-5 mb-4 justify-content-center" id="movieDetails">
+        <div class="row mt-5 mb-5 justify-content-center" id="movieDetails">
             <div class="col-md-3 text-center">
                 <img src="file://C:/Users/piete/Pictures/parasite-poster.jpg" style="width:95%" />
                 <h4 class=""><b>Star Wars: Rise of Skywalker</b></h4>
@@ -79,24 +79,80 @@
             </div>
         </div>
 
-        <div class="row mt-5 mb-4">
-            <div class="col-7">
-                <form class="row justify-content-center">
-                    <h1 class="text-center mb-3">⭐⭐⭐⭐⭐</h1>
-                    <textarea class="form-control border border-dark text-center h-50 w-75" maxlength="300" placeholder="Write your review here..." required></textarea>
-                    <h4 class="text-center"><b>Star Wars: Rise of Skywalker</b></h4>
-                    <h5 class="text-center">George Lucas</h5>
-                    <h4 class="text-center mb-3">5.0 ⭐</h4>
-                    <div class="input-group justify-content-center">
-                        <span class="input-group-text border border-dark bg-white">Rp 5,000</span>
-                        <button type="submit" class="btn btn-white border border-dark">Buy Now</button>
+        <div class="row mt-5 mb-3">
+            <div class="col-6">
+                <div id="ratingForm">
+                    <!-- <form class="row justify-content-center px-5 mt-3 mb-4" action="#" onclick="">
+                        <h1 id="rating" class="text-center mb-4">⭐⭐⭐⭐⭐</h1>
+                        <textarea id="review" class="border border-dark form-control text-center w-75 py-4-half mb-3" maxlength="300" placeholder="Write your review here..." required></textarea>
+                        <button class="border border-dark btn btn-white w-75" type="submit">Submit</button>
+                    </form> -->
+                </div>
+                <div class="row">
+                    <!-- <div id="myRating" class=""> -->
+                        <div class="col-auto mx-1 mb-1">
+                            <div class="row mb-1">
+                                <span class="col-6 fs-5 text-start">Yurianika Yolanda</span>
+                                <span class="col-6 fs-5 text-end">
+                                    2.0 ⭐
+                                    <button id="popover" type="button" class="btn btn-white border border-white p-0" data-bs-toggle="popover" data-bs-html="true" data-bs-placement="right" 
+                                    data-bs-content="
+                                        <div class='row px-2 text-center py-0'>
+                                            <span style='cursor: pointer' class='my-1' onclick='loadEditRatingForm()'>Edit</span>
+                                            <hr class='my-1' />
+                                            <span style='cursor: pointer' class='my-1' onclick='deleteRating()'>Delete</span>
+                                        </div>
+                                    ">
+                                            <img class="d-flex justify-content-center" src="../../resources/icons/three-dots-vertical.svg" alt="Menu">
+                                        </button>
+                                    </button>
+                                </span>
+                                
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum elit ligula, posuere a justo malesuada</p>
+                        </div>
+                        <hr />
+                    <!-- </div> -->
+                    <div class="col-auto mx-1 mb-1">
+                        <div class="row mb-1 mb-1">
+                            <span class="col-6 fs-5 text-start">User Name</span>
+                            <span class="col-6 fs-5 text-end">5.0 ⭐&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </div>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum elit ligula, posuere a justo malesuada. 
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum elit ligula, posuere a justo malesuada. 
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum elit ligula, posuere a justo malesuada.
+                        </p>
                     </div>
-                </form>
+                    <hr />
+                    <div class="col-auto mx-1 mb-1">
+                        <div class="row mb-1">
+                            <span class="col-6 fs-5 text-start">Pieter Irsan</span>
+                            <span class="col-6 fs-5 text-end">4.0 ⭐&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </div>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum elit ligula, posuere a justo malesuada
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum elit ligula, posuere a justo malesuada. 
+                        </p>
+                    </div>
+                    <hr />
+                    <div class="col-auto mx-1 mb-1">
+                        <div class="row mb-1">
+                            <span class="col-6 fs-5 text-start">Yurianika Yolanda</span>
+                            <span class="col-6 fs-5 text-end">2.0 ⭐&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum elit ligula, posuere a justo malesuada</p>
+                    </div>
+                    <hr />
+                </div>
             </div>            
         </div>
 
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 	<script src="movie.js"></script>
+    <script src="/resources/js/script.js"></script>
+    <script src="../../resources/js/script.js"></script>
 </body>
 </html>

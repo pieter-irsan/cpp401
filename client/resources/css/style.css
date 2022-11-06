@@ -18,6 +18,11 @@
   padding-top: 2.5rem !important;
 }
 
+.py-4-half {
+  padding-top: 2.5rem !important;
+  padding-bottom: 2.5rem !important;
+}
+
 .p-4-half {
   padding: 2rem !important;
 }
@@ -29,4 +34,8 @@
 
 .fs-7 {
   font-size: 0.95rem !important;
+}
+
+.w-60 {
+  width: 60% !important;
 }
