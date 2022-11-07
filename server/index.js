@@ -15,6 +15,7 @@ const corsOptions = {
 const adminAPI = require('./admin/auth/api');
 const movieAPI = require('./admin/movie/api');
 const transactionAPI = require('./admin/transaction/api');
+const ratingAPI = require('./admin/rating/api');
 
 app.use(cors(corsOptions));
 app.use(express.json());
@@ -35,7 +36,9 @@ app.use('/auth', express.static('../client/user/auth'));
 // API
 app.use('/admin', adminAPI);
 app.use('/movie', movieAPI);
+
 app.use('/transaction', transactionAPI);
+app.use('/rating', ratingAPI);
 
 app.get('/', (_, response) => response.send('Online Cinema API'));
 
