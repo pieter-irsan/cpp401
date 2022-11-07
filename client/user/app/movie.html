@@ -9,7 +9,6 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="/resources/css/style.css">
-    <link rel="stylesheet" href="../../../client/resources/css/style.css">
 </head> 
 <body>
     <nav class="navbar navbar-light bg-white fixed-top navbar-expand-md border border-dark">
@@ -58,7 +57,7 @@
 
         <div class="row mt-5 mb-5 justify-content-center" id="movieDetails">
             <div class="col-md-3 text-center">
-                <img src="file://C:/Users/piete/Pictures/parasite-poster.jpg" style="width:95%" />
+                <!-- <img src="file://C:/Users/piete/Pictures/parasite-poster.jpg" style="width:95%" /> -->
                 <h4 class=""><b>Star Wars: Rise of Skywalker</b></h4>
                 <h5 class="">George Lucas</h5>
                 <h4 class="mb-3">5.0 ⭐</h4>
@@ -73,7 +72,7 @@
                 <p class="fs-5 mb-1 mt-2"><b>Trailer</b></p>
                 <div class="row justify-content-center">
                     <div class="col-auto ratio ratio-16x9" style="width:95%">
-                        <iframe src="file://C:/Users/piete/Videos/stock_nightsky.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <!-- <iframe src="file://C:/Users/piete/Videos/stock_nightsky.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
                     </div>
                 </div>
             </div>
@@ -82,7 +81,7 @@
         <div class="row mt-5 mb-3">
             <div class="col-6">
                 <div id="ratingForm">
-                    <form class="row justify-content-center px-5 mt-3 mb-4" action="#" onclick="addRating()">
+                    <form class="row justify-content-center px-5 mt-3 mb-4" action="javascript:void(0)" onsubmit="addRating()">
                         <h1 id="rating" class="text-center mb-4">⭐⭐⭐⭐⭐</h1>
                         <textarea id="review" class="border border-dark form-control text-center w-75 py-4-half mb-3" maxlength="300" placeholder="Write your review here..." required></textarea>
                         <button class="border border-dark btn btn-white w-75" type="submit">Submit</button>
@@ -155,6 +154,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 	<script src="movie.js"></script>
     <script src="/resources/js/script.js"></script>
-    <script src="../../resources/js/script.js"></script>
+    <script>
+        const popover = new bootstrap.Popover(document.getElementById("popover"), { trigger: 'focus' });
+    </script>
 </body>
 </html>

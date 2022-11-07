@@ -139,19 +139,27 @@ function addRating() {
 	const review = document.getElementById("review").value;
 	
 	const req = new XMLHttpRequest();
-	req.open("POST", "http://localhost:2800/rating/");
+	req.open("POST", "http://localhost:2800/rating/" + id);
 	req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 	req.send(JSON.stringify({ 
 		"rating": rating, 
 		"review": review
 	}));
-	
+console.log(this.responseText);
 	req.onreadystatechange = function() {
 		console.log(this.readyState, this.status)
         if (this.readyState == 4 && this.status == 200) {
 			alert("Rating added successfully");
 			location.reload();
 		}
+        else if (this.readyState == 4 && this.status == 403) {
+			alert("You have to log in first!");
+			return location.href = '/auth/login.html';
+        }
+        else {
+            alert("Something went wrong!");
+            location.reload();
+        }
 	}
 }
 
@@ -160,7 +168,7 @@ function editRating() {
 	const review = document.getElementById("review").value;
 		
 	const req = new XMLHttpRequest();
-	req.open("PUT", "http://localhost:2800/rating");
+	req.open("PUT", "http://localhost:2800/rating/" + id);
 	req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 	req.send(JSON.stringify({ 
 		"rating": rating, 
@@ -173,6 +181,10 @@ function editRating() {
 			alert("Rating edited successfully");
 			location.reload();
 		}
+        else if (this.readyState == 4 && this.status == 403) {
+			alert("You have to log in first!");
+			return location.href = '/auth/login.html';
+        }
 	}
 }
 
@@ -188,14 +200,16 @@ function deleteRating() {
 			alert("Rating deleted successfully");
             location.reload();
 		}
+        else if (this.readyState == 4 && this.status == 403) {
+			alert("You have to log in first!");
+			return location.href = '/auth/login.html';
+        }
 	}
 }
 
 function inputRatingStar() {
     
 }
-
-const popover = new bootstrap.Popover(document.getElementById("popover"), { trigger: 'focus' });
 
 loadMovieDetailsPage(id);
 
