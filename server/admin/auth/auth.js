@@ -7,7 +7,7 @@ function signToken(username, userType) {
 
 function verifyToken(token) {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    return decoded.username, decoded.usertype
+    return [decoded.username, decoded.usertype]
 }
 
 const verifyAdmin = (req, res, next) => {

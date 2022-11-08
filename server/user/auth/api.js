@@ -1,6 +1,6 @@
 const express = require('express');
 const api = express.Router();
-const auth = require('./auth');
+const auth = require('../../admin/auth/auth');
 
 const Pool = require('pg').Pool;
 const pool = new Pool({
@@ -14,9 +14,11 @@ const pool = new Pool({
 api.post('/register', function(request, response) {
     const { username, email, password } = request.body;
     pool.query(`insert into "user" (username, email, password, user_type) values ($1, $2, $3, 'user')`, [username, email, password], (error, result) => {
-        console.log(result, 12345)
-        if (error) response.status(500).json({ error: error });
-        else response.status(200).json(result.rows);
+        if (error) {
+            if (error.detail.includes('exists')) return response.status(409).end();
+            else response.status(500).json({ error: error });
+        }
+        else response.status(200).end();
     });
 });
 

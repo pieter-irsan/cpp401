@@ -15,7 +15,9 @@ const corsOptions = {
 const adminAPI = require('./admin/auth/api');
 const movieAPI = require('./admin/movie/api');
 const transactionAPI = require('./admin/transaction/api');
-const ratingAPI = require('./admin/rating/api');
+
+const userAPI = require('./user/auth/api')
+const ratingAPI = require('./user/rating/api');
 
 app.use(cors(corsOptions));
 app.use(express.json());
@@ -37,6 +39,7 @@ app.use('/auth', express.static('../client/user/auth'));
 app.use('/admin', adminAPI);
 app.use('/movie', movieAPI);
 
+app.use('/auth', userAPI);
 app.use('/transaction', transactionAPI);
 app.use('/rating', ratingAPI);
 

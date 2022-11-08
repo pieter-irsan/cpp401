@@ -19,7 +19,7 @@ api.get('/', function(_, response) {
 
 api.get('/detail/:id', function(request, response) {
     const id = parseInt(request.params.id);
-    pool.query('select * from movie where id = $1', [id], (error, result) => {
+    pool.query('select *, (select avg(rating)::numeric(1) as rating from rating where title = movie.title) from movie where id = $1', [id], (error, result) => {
         if (error) response.status(500).json({ error: error });
         else response.status(200).json(result.rows);
     });
