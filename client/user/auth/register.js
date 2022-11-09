@@ -15,10 +15,11 @@ function registerUser() {
 	req.onreadystatechange = function() {
 		console.log(this.readyState, this.status)
         if (this.readyState == 4 && this.status == 200) {
-            const response = JSON.parse(this.responseText);
-			document.cookie = `token=${response.token}; max-age=86400; path=/`;
             alert("Successfully registered");
 			location.href = '/auth/login.html';
+		} else if (this.readyState == 4 && this.status == 409) {
+			alert("Username is already taken");
+			location.reload();
 		} else if (this.readyState == 4 && this.status == 500) {
 			alert("500 — Internal Server Error");
 			location.reload();

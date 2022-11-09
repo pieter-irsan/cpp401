@@ -24,7 +24,7 @@
                         <a class="nav-item mx-2 my-1" href="/app/index.html">
                             <span class="btn btn-white border border-dark">Home</span>
                         </a>
-                        <a class="nav-item mx-2 my-1" href="/auth/register.html">
+                        <a id="registerButton" class="nav-item mx-2 my-1" href="/auth/register.html">
 							<span class="btn btn-white border border-dark">Register</span>
                             <!--
 								@if (Session["User"] != null) 
@@ -33,7 +33,7 @@
 									@Html.ActionLink("Register", "Register", "User", null, new { @class = "btn btn-white border border-dark" })
 							-->
                         </a>
-                        <a class="nav-item mx-2 my-1" href="/auth/login.html">
+                        <a id="loginButton" class="nav-item mx-2 my-1" href="/auth/login.html">
 							<span class="btn btn-white border border-dark">Login</span>
 							<!--
 								@if (Session["User"] != null)
@@ -56,11 +56,13 @@
     <div class="container body-content pt-4-half pb-5">
 
         <div class="row mt-5 mb-5 justify-content-center" id="movieDetails">
+<!--
             <div class="col-md-3 text-center">
-                <!-- <img src="file://C:/Users/piete/Pictures/parasite-poster.jpg" style="width:95%" /> -->
+                <img src="" style="width:95%" />
+                <i style="display: none">file://C:/Users/piete/Pictures/parasite-poster.jpg</i>
                 <h4 class=""><b>Star Wars: Rise of Skywalker</b></h4>
                 <h5 class="">George Lucas</h5>
-                <h4 class="mb-3">5.0 ⭐</h4>
+                <h4 class="mb-3">5 ⭐</h4>
                 <div class="input-group justify-content-center">
                     <span class="input-group-text border border-dark bg-white">Rp 5,000</span>
                     <button type="submit" class="btn btn-white border border-dark">Buy Now</button>
@@ -68,14 +70,18 @@
             </div>
             <div class="offset-md-1 col-md-8">
                 <p class="fs-5 mb-1"><b>Synopsis</b></p>
+                <hr class="mt-0" />
                 <p class="fs-6 mb-1">After his retirement is interrupted by Gorr the God Butcher, a galactic killer who seeks the extinction of the gods, Thor Odinson enlists the help of King Valkyrie, Korg, and ex-girlfriend Jane Foster, who now wields Mjolnir as the Mighty Thor. Together they embark upon a harrowing cosmic adventure.</p>
                 <p class="fs-5 mb-1 mt-2"><b>Trailer</b></p>
+                <hr class="mt-0" />
                 <div class="row justify-content-center">
                     <div class="col-auto ratio ratio-16x9" style="width:95%">
-                        <!-- <iframe src="file://C:/Users/piete/Videos/stock_nightsky.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                        <iframe src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <i style="display: none">file://C:/Users/piete/Videos/stock_nightsky.mp4</i>
                     </div>
                 </div>
             </div>
+-->
         </div>
 
         <div class="row mt-5 mb-3">
@@ -87,36 +93,29 @@
                         <button class="border border-dark btn btn-white w-75" type="submit">Submit</button>
                     </form>
                 </div>
+                <div class="row">
+                    <p class="fs-5 mb-1"><b>Rating & Review</b></p>
+                    <hr class="mt-0" />
+                </div>
+                    <!-- <div id="myRating" class="col-auto mx-1 mb-1">
+                    </div> -->
+                    <!-- <hr id="myRatingSeparator" style="display: none" /> -->
                 <div id="ratingRow" class="row">
-                    <div id="myRating" class="col-auto mx-1 mb-1">
-<!--
-                        <div class="row mb-1">
-                            <span class="col-6 fs-5 text-start">Yurianika Yolanda</span>
-                            <span class="col-6 fs-5 text-end">
-                                2.0 ⭐
-                                <button id="popover" type="button" class="btn btn-white border border-white p-0" data-bs-toggle="popover" data-bs-html="true" data-bs-placement="right" 
-                                data-bs-content="
-                                    <div class='row px-2 text-center py-0'>
-                                        <span style='cursor: pointer' class='my-1' onclick='loadEditRatingForm()'>Edit</span>
-                                        <hr class='my-1' />
-                                        <span style='cursor: pointer' class='my-1' onclick='deleteRating()'>Delete</span>
-                                    </div>
-                                ">
-                                        <img class="d-flex justify-content-center" src="../../resources/icons/three-dots-vertical.svg" alt="Menu">
-                                    </button>
-                                </button>
-                            </span>
-                            
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum elit ligula, posuere a justo malesuada</p>
--->
-                    </div>
-                    <hr id="myRatingSeparator" style="display: none" />
+                </div>
+            </div>            
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<script src="/resources/js/logout.js"></script>
+    <script src="/resources/js/script.js"></script>
+    <script src="movie.js"></script>
 <!--
                     <div class="col-auto mx-1 mb-1">
                         <div class="row mb-1 mb-1">
-                            <span class="col-6 fs-5 text-start">User Name</span>
-                            <span class="col-6 fs-5 text-end">5.0 ⭐&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <span class="col-6 fs-5 text-start">user_one</span>
+                            <span class="col-6 fs-5 text-end">5 ⭐&nbsp;&nbsp;&nbsp;&nbsp;</span>
                         </div>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum elit ligula, posuere a justo malesuada. 
@@ -127,8 +126,8 @@
                     <hr />
                     <div class="col-auto mx-1 mb-1">
                         <div class="row mb-1">
-                            <span class="col-6 fs-5 text-start">Pieter Irsan</span>
-                            <span class="col-6 fs-5 text-end">4.0 ⭐&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <span class="col-6 fs-5 text-start">user_dummy</span>
+                            <span class="col-6 fs-5 text-end">4 ⭐&nbsp;&nbsp;&nbsp;&nbsp;</span>
                         </div>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum elit ligula, posuere a justo malesuada
@@ -138,24 +137,34 @@
                     <hr />
                     <div class="col-auto mx-1 mb-1">
                         <div class="row mb-1">
-                            <span class="col-6 fs-5 text-start">Yurianika Yolanda</span>
-                            <span class="col-6 fs-5 text-end">2.0 ⭐&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <span class="col-6 fs-5 text-start">username123</span>
+                            <span class="col-6 fs-5 text-end">2 ⭐&nbsp;&nbsp;&nbsp;&nbsp;</span>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum elit ligula, posuere a justo malesuada</p>
                     </div>
                     <hr />
 -->
-                </div>
-            </div>            
-        </div>
 
-    </div>
+<!--
+<div class="row mb-1">
+    <span class="col-6 fs-5 text-start">Yurianika Yolanda</span>
+    <span class="col-6 fs-5 text-end">
+        2 ⭐
+        <button id="popover" type="button" class="btn btn-white border border-white p-0" data-bs-toggle="popover" data-bs-html="true" data-bs-placement="right" 
+        data-bs-content="
+            <div class='row px-2 text-center py-0'>
+                <span style='cursor: pointer' class='my-1' onclick='loadEditRatingForm()'>Edit</span>
+                <hr class='my-1' />
+                <span style='cursor: pointer' class='my-1' onclick='deleteRating()'>Delete</span>
+            </div>
+        ">
+                <img class="d-flex justify-content-center" src="../../resources/icons/three-dots-vertical.svg" alt="Menu">
+            </button>
+        </button>
+    </span>
+</div>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum elit ligula, posuere a justo malesuada</p>
+-->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-	<script src="movie.js"></script>
-    <script src="/resources/js/script.js"></script>
-    <script>
-        const popover = new bootstrap.Popover(document.getElementById("popover"), { trigger: 'focus' });
-    </script>
 </body>
 </html>
