@@ -24,23 +24,11 @@
                         <a class="nav-item mx-2 my-1" href="/app/index.html">
                             <span class="btn btn-white border border-dark">Home</span>
                         </a>
-                        <a class="nav-item mx-2 my-1" href="/auth/register.html">
+                        <a id="registerButton" class="nav-item mx-2 my-1" href="/auth/register.html">
 							<span class="btn btn-white border border-dark">Register</span>
-                            <!--
-								@if (Session["User"] != null) 
-									@Html.ActionLink("My Movies", "Movie", "User", null, new { @class = "btn btn-white border border-dark" })
-								else
-									@Html.ActionLink("Register", "Register", "User", null, new { @class = "btn btn-white border border-dark" })
-							-->
                         </a>
-                        <a class="nav-item mx-2 my-1" href="/auth/login.html">
+                        <a id="loginButton" class="nav-item mx-2 my-1" href="/auth/login.html">
 							<span class="btn btn-white border border-dark">Login</span>
-							<!--
-								@if (Session["User"] != null)
-									@Html.ActionLink("Logout", "Logout", "User", null, new { @class = "btn btn-outline-danger" })
-								else
-									@Html.ActionLink("Login", "Login", "User", null, new { @class = "btn btn-white border border-dark" })
-							-->
                         </a>
                         <form class="ms-2 mt-1" action="javascript:void(0)" onsubmit="search()">
                             <div class="input-group mb-1">
@@ -100,6 +88,8 @@
             </div>
         </div>   
 
+    <script src="/resources/js/logout.js"></script>
+    <script src="/resources/js/script.js"></script>
 	<script src="register.js"></script>
     <script src="/app/search.js"></script>
 </body>
