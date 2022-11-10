@@ -34,7 +34,7 @@ function loadMovieDetailsPage(id) {
                     <h4 id="titleRating" class="mb-3">${object['rating']} ⭐</h4>
                     <div class="input-group justify-content-center">
                         <span class="input-group-text border border-dark bg-white">Rp ${object['price'].toLocaleString()}</span>
-                        <button type="button" onclick="" class="btn btn-white border border-dark">Buy Now</button>
+                        <button type="button" onclick="location.href='/purchase?id=${object['id']}'" class="btn btn-white border border-dark">Buy Now</button>
                     </div>
                 </div>
                 <div class="offset-md-1 col-md-8">

@@ -24,7 +24,6 @@ api.get('/:movieid', function(request, response) {
 
 api.get('/:movieid/user', function(request, response) {
     const id = parseInt(request.params.movieid);
-    let username = ''
     if (request.cookies.token) [username, _] = auth.verifyToken(request.cookies.token);
     else return response.status(403);
     
@@ -38,7 +37,6 @@ api.get('/:movieid/user', function(request, response) {
 api.post('/:movieid', function(request, response) {
     const { rating, review } = request.body;
     const id = parseInt(request.params.movieid);
-    let username = ''
     if (request.cookies.token) [username, _] = auth.verifyToken(request.cookies.token);
     else return response.status(403);
 
@@ -51,7 +49,6 @@ api.post('/:movieid', function(request, response) {
 api.put('/:movieid', function(request, response) {
     const { rating, review } = request.body;
     const id = parseInt(request.params.movieid);
-    let username = ''
     if (request.cookies.token) [username, _] = auth.verifyToken(request.cookies.token);
     else return response.status(403);
 
@@ -63,7 +60,6 @@ api.put('/:movieid', function(request, response) {
 
 api.delete('/:movieid', function(request, response) {
     const id = parseInt(request.params.movieid);
-    let username = ''
     if (request.cookies.token) [username, _] = auth.verifyToken(request.cookies.token);
     else return response.status(403);
 

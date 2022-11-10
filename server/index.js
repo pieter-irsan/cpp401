@@ -26,14 +26,15 @@ app.use(cookieParser());
 app.use('/resources', express.static('../client/resources'));
 
 // Client
-app.use('/admin/home', verifyAdmin, express.static('../client/admin/index'));
 app.use('/admin/auth', express.static('../client/admin/auth'));
+app.use('/admin/home', verifyAdmin, express.static('../client/admin/index'));
 app.use('/admin/movie', verifyAdmin, express.static('../client/admin/movie'));
 app.use('/admin/transaction', verifyAdmin, express.static('../client/admin/transaction'));
 
 app.use('/app', express.static('../client/user/app'));
-// app.use('/???', verifyUser, express.static('../client/user/???'));
 app.use('/auth', express.static('../client/user/auth'));
+app.use('/user', verifyUser, express.static('../client/user/user'));
+app.use('/purchase', verifyUser, express.static('../client/user/transaction'));
 
 // API
 app.use('/admin', adminAPI);
@@ -43,7 +44,7 @@ app.use('/auth', userAPI);
 app.use('/transaction', transactionAPI);
 app.use('/rating', ratingAPI);
 
-app.get('/', (_, response) => response.send('Online Cinema API'));
+app.get('/', (_, response) => response.redirect('/app'));
 
 app.listen(port, () => {
     console.log(`🚀 Server is running on port ${port}`);

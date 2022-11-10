@@ -1,5 +1,4 @@
 const myDefaultAllowList = bootstrap.Tooltip.Default.allowList
-
 myDefaultAllowList.span = ['style', 'onclick']
 
 function isEmptyOrWhitespace(str){
@@ -14,7 +13,7 @@ function getCookie(name) {
 
 if (getCookie('token') != null) {
     // Change 'Register' button to 'My Movies' button
-    document.getElementById("registerButton").href = "/user/movies/index.html";
+    document.getElementById("registerButton").href = "/user/movie.html";
     document.getElementById("registerButton").innerHTML = `
         <span class="btn btn-white border border-dark">My Movies</span>
     `;
