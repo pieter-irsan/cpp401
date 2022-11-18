@@ -1,5 +1,6 @@
 const express = require('express');
 const api = express.Router();
+const multer  = require('multer')
 const auth = require('../../admin/auth/auth');
 
 const Pool = require('pg').Pool;
@@ -10,6 +11,17 @@ const pool = new Pool({
     password: '123',
     port: 5432
 });
+
+const storage = multer.diskStorage({
+  destination: (request, file, path) => {
+    if (request.files[0].fieldname == 'poster') path(null, 'TEST-POSTER/')
+    if (request.files[1].fieldname == 'movie') path(null, 'TEST-MOVIE/')
+  },
+  filename: (request, file, filename) => {
+    filename(null, request.body.title)
+  }
+})
+const upload = multer({ storage: storage })
 
 api.get('/', function(_, response) {
     pool.query('select * from movie order by id desc', (error, result) => {
@@ -34,10 +46,16 @@ api.post('/', function(request, response) {
     });
 });
 
-api.put('/:id', function(request, response) {
+api.put('/:id', upload.any(), function(request, response) {
     const id = parseInt(request.params.id);
-    const { title, director, synopsis, price, poster, trailer, movie } = request.body;
-    pool.query('update movie set title = $2, director = $3, synopsis = $4, price = $5, poster = $6, trailer = $7, movie = $8 where id = $1', [id, title, director, synopsis, price, poster, trailer, movie], (error, result) => {
+    const { title, director, synopsis, price, trailer } = request.body;
+    console.log(req.files)
+    console.log(req.files[0].filename)
+    console.log(req.files[0].originalname)
+    const posterFilename = req.files[0];
+    const movieFilename = req.files[1];
+
+    pool.query('update movie set title = $2, director = $3, synopsis = $4, price = $5, poster = $6, trailer = $7, movie = $8 where id = $1', [id, title, director, synopsis, price, posterFilename, trailer, movieFilename], (error, result) => {
         if (error) response.status(500).json({ error: error });
         else response.status(200).json(result.rows);
     });

@@ -1,7 +1,12 @@
 const params = (new URL(document.location)).searchParams;
 const id = params.get("id");
 
+document.getElementById('editForm').action = "/movie/" + id;
+
 function editMovie() {
+
+    // enctype="multipart/form-data"
+
     const title = document.getElementById("title").value;
 	const director = document.getElementById("director").value;
 	const synopsis = document.getElementById("synopsis").value;
@@ -48,8 +53,7 @@ function loadEditForm(id) {
                     </div>
                     <div class="col-3 mx-5 my-2">
                         <label class="control-label">Poster</label>
-                        <input id="poster" value="${object['poster']}" class="form-control border border-dark" required>
-                        <!-- <input id="poster" value="${object['poster']}" class="form-control border border-dark" type="file" required> -->
+                        <input id="poster" type="file" class="form-control border border-dark" required>
                     </div>
                 </div>
                 <div class="row justify-content-center">
@@ -69,7 +73,7 @@ function loadEditForm(id) {
                     </div>
                     <div class="col-3 mx-5 my-2">
                         <label class="control-label">Movie</label>
-                        <input id="movie" value="${object['movie']}" class="form-control border border-dark" required>
+                        <input id="movie" type="file" class="form-control border border-dark" required>
                     </div>
                 </div>
                 <div class="row justify-content-center">
