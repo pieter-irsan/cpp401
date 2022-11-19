@@ -1,8 +1,16 @@
 const myDefaultAllowList = bootstrap.Tooltip.Default.allowList
 myDefaultAllowList.span = ['style', 'onclick']
 
-function isEmptyOrWhitespace(str){
+function isEmptyOrWhitespace(str) {
     return str == null || str.replace(/\s/g, '').length < 1
+}
+
+function transformToFilename(string) {
+    return string.trim()
+        .replaceAll(' ','-')
+        .replace(/[^a-z0-9-]/gi, '')
+        .replace(/-+/gi,'-')
+        .toLowerCase();
 }
 
 function getCookie(name) {
@@ -12,16 +20,21 @@ function getCookie(name) {
 }
 
 if (getCookie('token') != null) {
-    // Change 'Register' button to 'My Movies' button
-    document.getElementById("registerButton").href = "/user/movie.html";
-    document.getElementById("registerButton").innerHTML = `
-        <span class="btn btn-white border border-dark">My Movies</span>
-    `;
+    registerBtn = document.getElementById("registerButton");
+    loginBtn = document.getElementById("loginButton");
 
-    // Change 'Login' button to 'Logout' button
-    document.getElementById("loginButton").removeAttribute('href');
-    document.getElementById("loginButton").setAttribute("onclick", "logoutUser()");
-    document.getElementById("loginButton").innerHTML = `
-        <span class="btn btn-white border border-dark">Logout</span>
-    `;
+    if (registerBtn && loginBtn) {
+        // Change 'Register' button to 'My Movies' button
+        document.getElementById("registerButton").href = "/user/movie.html";
+        document.getElementById("registerButton").innerHTML = `
+            <span class="btn btn-white border border-dark">My Movies</span>
+        `;
+
+        // Change 'Login' button to 'Logout' button
+        document.getElementById("loginButton").removeAttribute('href');
+        document.getElementById("loginButton").setAttribute("onclick", "logoutUser()");
+        document.getElementById("loginButton").innerHTML = `
+            <span class="btn btn-white border border-dark">Logout</span>
+        `;
+    }
 }
