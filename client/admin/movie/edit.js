@@ -13,11 +13,22 @@ function editMovie() {
     const movie = document.getElementById('movie').files[0];
 
     let formData = new FormData(editForm);
-    formData.append("poster", poster, transformToFilename(title))
-    formData.append("movie", movie, transformToFilename(title))
+    formData.set("title", document.getElementById("title").value);
+    formData.set("director", document.getElementById("director").value);
+    formData.set("synopsis", document.getElementById("synopsis").value);
+    formData.set("price", document.getElementById("price").value);
+    formData.set("trailer", document.getElementById("trailer").value);
+    formData.set("poster", poster, transformToFilename(title));
+    formData.set("movie", movie, transformToFilename(title));
+    // formData.append("title", title);
+    // formData.append("director", director);
+    // formData.append("synopsis", synopsis);
+    // formData.append("price", price);
+    // formData.append("trailer", trailer);
+    // formData.append("poster", poster, transformToFilename(title));
+    // formData.append("movie", movie, transformToFilename(title));
     console.log(document.getElementById('poster').files[0])
     console.log(document.getElementById('movie').files[0])
-    // console.log(document.querySelector('input[type=file]').files)
 
     fetch("http://localhost:2800/movie/" + id, {
         method: "PUT",
