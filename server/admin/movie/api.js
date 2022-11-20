@@ -14,27 +14,26 @@ const pool = new Pool({
 });
 
 const storage = multer.diskStorage({
-    destination: (request, file, path) => {
+    destination: (request, file, setDestination) => {
         console.log(`file: ${JSON.stringify(file)}`)
-        if (file.fieldname == 'poster') path(null, 'TEST-POSTER/')
-        if (file.fieldname == 'movie') path(null, 'TEST-MOVIE/')
+        if (file.fieldname == 'poster') setDestination(null, 'media/poster/')
+        if (file.fieldname == 'movie') setDestination(null, 'media/movie/')
     },
-    filename: (request, file, filename) => {
-        // console.log(`request.body: ${JSON.stringify(request.body)}`)
-        let name = ''
-        if (file.mimetype == 'image/jpeg') name = file.originalname + '-poster.jpg'
-        if (file.mimetype == 'video/mp4') name = file.originalname + '-movie.mp4'
-        filename(null, name
-        // slugify(request.body.title, {
-        //     replacement: '-',
-        //     remove: /[<>/\\|?*+~.()'"!:@]/g,
-        //     lower: true
-        // })
-        )
+    filename: (request, file, setFilename) => {
+        // console.log(`request.body.title: ${JSON.stringify(request.body.title)}`)
+        let fileName = slugify(request.body.title, {
+            replacement: '-',
+            remove: /[<>/\\|?*+~.()'"!:@$^&]/g,
+            lower: true
+        })
+        if (file.mimetype == 'image/jpeg') fileName += '-poster.jpg';
+        if (file.mimetype == 'video/mp4') fileName += '-movie.mp4';
+        console.log(`fileName: ${fileName}`)
+        setFilename(null, fileName)
     }
 })
 const upload = multer({ storage: storage })
-const fieldName = [{ name: 'poster' }, { name: 'movie' }]
+// const fieldName = [{ name: 'poster' }, { name: 'movie' }]
 
 api.get('/', function(_, response) {
     pool.query('select * from movie order by id desc', (error, result) => {
@@ -58,19 +57,25 @@ api.post('/', function(request, response) {
         else response.status(200).json(result.rows);
     });
 });
-
-api.put('/:id', upload.fields(fieldName), function(request, response) {
+// .fields(fieldName)
+api.put('/:id', upload.any(), function(request, response) {
     const id = parseInt(request.params.id);
-    const { title, director, synopsis, price, trailer } = request.body;
-    console.log(`main request.header: ${JSON.stringify(request.headers)}`)
-    console.log(`main request.body: ${JSON.stringify(request.body)}`)
-    console.log(`main request.files: ${JSON.stringify(request.files)}`)
-    console.log(`files['poster'][0]: ${request.files['poster'][0]}`)
-    console.log(`files['poster']: ${request.files['poster']}`)
-    const posterFilename = request.files['poster'][0];
-    const movieFilename = request.files['movie'][1];
+    let { title, director, synopsis, price, trailer, poster, movie } = request.body;
+    console.log(`request.header: ${JSON.stringify(request.headers)}`)
+    console.log(`request.body: ${JSON.stringify(request.body)}`)
+    console.log(`request.files: ${JSON.stringify(request.files)}`)
+    console.log(`Object.keys(request.files).length: ${Object.keys(request.files).length}`)
+    if (Object.keys(request.files).length > 0) {
+        // poster = request.files.poster[0].filename;
+        // movie = request.files['movie'][0].filename;
+        poster = request.files[0].filename
+        movie = request.files[1].filename
+        console.log(`request.files[0].filename: ${JSON.stringify(request.files[0].filename)}`)
+        console.log(`request.files[1].filename: ${JSON.stringify(request.files[1].filename)}`)
+    }
 
-    pool.query('update movie set title = $2, director = $3, synopsis = $4, price = $5, poster = $6, trailer = $7, movie = $8 where id = 0', [id, title, director, synopsis, price, posterFilename, trailer, movieFilename], (error, result) => {
+console.log(id, title, director, synopsis, price, poster, trailer, movie)
+    pool.query(`update movie set title = $2, director = $3, synopsis = $4, price = $5, poster = ${poster ? '$6' : 'poster'}, trailer = $7, movie = ${movie ? '$7' : 'movie'} where id = 0`, [id, title, director, synopsis, price, poster, trailer, movie], (error, result) => {
         if (error) response.status(500).json({ error: error });
         else response.status(200).json(result.rows);
     });
