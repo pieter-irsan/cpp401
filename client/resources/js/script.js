@@ -6,11 +6,13 @@ function isEmptyOrWhitespace(str) {
 }
 
 function transformToFilename(string) {
-    return string.trim()
-        .replaceAll(' ','-')
-        .replace(/[^a-z0-9-]/gi, '')
-        .replace(/-+/gi,'-')
-        .toLowerCase();
+    if (typeof string == 'string') {
+        return string.trim()
+            .replaceAll(' ','-')
+            .replace(/[^a-z0-9-]/gi, '')
+            .replace(/-+/gi,'-')
+            .toLowerCase();
+    }
 }
 
 function getCookie(name) {

@@ -1,1 +1,4 @@
 node_modules
+media/poster/*
+media/movie/*
+.env

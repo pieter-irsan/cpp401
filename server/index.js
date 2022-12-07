@@ -24,6 +24,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use('/resources', express.static('../client/resources'));
+app.use('/media', express.static('media'));
 
 // Client
 app.use('/admin/auth', express.static('../client/admin/auth'));

@@ -5,10 +5,10 @@ document.getElementById('editForm').action = "/movie/" + id;
 
 function editMovie() {
     const title = document.getElementById("title").value;
-	const director = document.getElementById("director").value;
-	const synopsis = document.getElementById("synopsis").value;
-	const price = document.getElementById("price").value;
-	const trailer = document.getElementById("trailer").value;
+	// const director = document.getElementById("director").value;
+	// const synopsis = document.getElementById("synopsis").value;
+	// const price = document.getElementById("price").value;
+	// const trailer = document.getElementById("trailer").value;
     const poster = document.getElementById('poster').files[0];
     const movie = document.getElementById('movie').files[0];
 
@@ -27,8 +27,8 @@ function editMovie() {
     // formData.append("trailer", trailer);
     // formData.append("poster", poster, transformToFilename(title));
     // formData.append("movie", movie, transformToFilename(title));
-    console.log(document.getElementById('poster').files[0])
-    console.log(document.getElementById('movie').files[0])
+    // console.log(document.getElementById('poster').files[0])
+    // console.log(document.getElementById('movie').files[0])
 
     fetch("http://localhost:2800/movie/" + id, {
         method: "PUT",
@@ -49,17 +49,23 @@ function editMovie() {
         //     "Content-Type": "multipart/form-data"
         // }
     })
-        .then(response => response.json())
-        .then((data) => {
-            console.log(data)
-            alert("Data updated successfully");
-			location.href = '/admin/movie/index.html';
-        })
-        .catch((error) => {
-            console.log(error)
-            alert("Error - Check the console for more information");
-			location.href = '/admin/movie/edit.html?id=' + id;
-        })
+    .then((response) => {
+        console.log(response)
+        response.json()
+        if (!response.ok) throw response
+    })
+    .then((data) => {
+        console.log(data)
+        alert("Data updated successfully");
+        location.href = '/admin/movie/index.html';
+    })
+    .catch((error) => {
+        console.log(JSON.stringify(error))
+        console.log(error)
+        console.log(error.message)
+        alert("Error - Check the console for more information");
+        location.href = '/admin/movie/edit.html?id=' + id;
+    })
 
     // const title = document.getElementById("title").value;
 	// const director = document.getElementById("director").value;

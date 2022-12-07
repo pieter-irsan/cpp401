@@ -3,15 +3,8 @@ const api = express.Router();
 const multer  = require('multer')
 const slugify = require('slugify');
 const auth = require('../../admin/auth/auth');
-
-const Pool = require('pg').Pool;
-const pool = new Pool({
-    user: 'admin',
-    host: 'localhost',
-    database: 'online_cinema',
-    password: '123',
-    port: 5432
-});
+const db = require('../../db');
+const pool = db.getPool();
 
 const storage = multer.diskStorage({
     destination: (request, file, setDestination) => {
@@ -51,10 +44,11 @@ api.get('/detail/:id', function(request, response) {
     });
 });
 
-api.post('/', function(request, response) {
+api.post('/', upload.fields(fieldName), function(request, response) {
+    console.log(request.body)
     const { title, director, synopsis, price, poster, trailer, movie } = request.body;
-    pool.query('insert into movie (title, director, synopsis, price, poster, trailer, movie) values ($1, $2, $3, $4, $5, $6, $7)', [title, director, synopsis, price, poster, trailer, movie], (error, result) => {
-        if (error) response.status(500).json({ error: error });
+    pool.query(`insert into movie (title, director, synopsis, price, poster, traier, movie) values ($1, $2, $3, $4, ${poster ? '$5' : 'null'}, $6, ${movie ? '$7' : 'null'})`, [title, director, synopsis, price, poster, trailer, movie], (error, result) => {
+        if (error) { console.log(error.message); response.status(500).json({ error: error.message }); }
         else response.status(200).json(result.rows);
     });
 });
@@ -74,8 +68,17 @@ api.put('/:id', upload.fields(fieldName), function(request, response) {
         console.log(`request.files.poster[0].filename: ${JSON.stringify(request.files.poster[0].filename, null, 2)}`)
         console.log(`request.files.movie[0].filename: ${JSON.stringify(request.files.movie[0].filename, null, 2)}`)
     }
-// console.log(id, title, director, synopsis, price, poster, trailer, movie)
-    pool.query(`update movie set title = $2, director = $3, synopsis = $4, price = $5, poster = ${poster ? '$6' : 'poster'}, trailer = $7, movie = ${movie ? '$7' : 'movie'} where id = $1`, [id, title, director, synopsis, price, poster, trailer, movie], (error, result) => {
+console.log(id)
+console.log(title)
+console.log(director)
+console.log(synopsis)
+console.log(price)
+console.log(poster)
+console.log(trailer)
+console.log(movie)
+    pool.query(`update movie set title = $2, director = $3, synopsis = $4, price = $5, poster = ${poster ? '$6' : 'poster'}, trailer = $7, movie = ${movie ? '$8' : 'movie'} where id = $1`, [id, title, director, synopsis, price, poster, trailer, movie], (error, result) => {
+        if (error) console.log(error)
+        console.log(result)
         if (error) response.status(500).json({ error: error });
         else response.status(200).json(result.rows);
     });
@@ -84,8 +87,8 @@ api.put('/:id', upload.fields(fieldName), function(request, response) {
 api.delete('/:id', function(request, response) {
     const id = parseInt(request.params.id);
     pool.query('delete from movie where id = $1', [id], (error, result) => {
-        if (error) response.status(500).json({ error: error });
-        else response.status(200).json(result.rows);
+        if (error) response.status(500).json({ aaaaaaaaaaaaaaaaa: "11111aaaaaaaaaaaaaaaaa", error: error });
+        else response.status(200).json({ aaaaaaaaaaaaaaaaa: "11111aaaaaaaaaaaaaaaaa" });
     });
 });
 
