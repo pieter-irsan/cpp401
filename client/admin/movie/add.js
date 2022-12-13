@@ -44,24 +44,12 @@ function addMovie() {
 
 	fetch("http://localhost:2800/movie/", {
         method: "POST",
-        body: formData 
-		// JSON.stringify({ 
-		// 	"title": title, 
-		// 	"director": director, 
-		// 	"synopsis": synopsis, 
-		// 	"price": price, 
-		// 	"poster": poster, 
-		// 	"trailer": trailer, 
-		// 	"movie": movie
-		// })
+        body: formData
     })
     .then((response) => {
-		if (!response.ok) return response.text().then(text => { throw new Error(text) })
-        console.log(response)
-		console.log(response.status)
-        response.json()
 		console.log(response)
-		console.log(response.status)
+		if (!response.ok) return response.text().then(text => { throw new Error(text) })
+        response.json()
     })
     .then((data) => {
         console.log(data)
@@ -70,7 +58,6 @@ function addMovie() {
     })
     .catch((error) => {
         console.log(error)
-        // console.log(error.message)
         alert("Error - Check the console for more information");
         location.reload();
     })

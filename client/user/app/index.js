@@ -12,7 +12,7 @@ function loadMovies() {
                     <div class="col-3">
                         <div class="card shadow-sm" style="cursor: pointer" onclick="location.href='/app/movie.html?id=${object['id']}'">
                             <div class="card-body text-center">
-                                    <img src="${object['poster']}" style="height:275px;" class="card-img-top w-100 py-1" />
+                                    <img src="/media/poster/${object['poster']}" style="height:275px;" class="card-img-top w-100 py-1" />
                                 <h6 class="card-title mb-0 mt-1 text-truncate">${object['title']}</h5>
                                 <span class="card-subtitle text-muted fs-7">Rp ${object['price'].toLocaleString()}</span>
                             </div>

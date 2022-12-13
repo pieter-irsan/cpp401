@@ -1,3 +1,27 @@
+/*
+
+
+TODO:
+
+- Upload Movie file
+  1. Press submit
+  2. Wait for upload to finish
+  3. Need loading indicator
+  4. Then show alert when done / not done
+
+- for user client, save video in advance on project directory
+
+- user client use xhr while admin client use fetch api
+
+- Forgot password feature (kayanya gaperlu kirim token lewat email...)
+
+- Create single pgsql pool
+  - pg_dump from bit.io
+
+- After payment, display alert: "Your movie will be available on the My Movies page"
+
+
+*/
 require('dotenv').config();
 const cors = require('cors');
 const express = require('express');

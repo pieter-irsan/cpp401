@@ -11,7 +11,7 @@ function loadMovieStreamingPage(id) {
             console.log(object)
 
             document.getElementById("title").innerHTML = object['title']
-            document.getElementById("videoPlayer").setAttribute('src', 'http://127.0.0.1:8887/stock_earth.mp4');
+            document.getElementById("videoPlayer").setAttribute('src', object['movie']);
         }
     }
 }

@@ -12,7 +12,7 @@ function loadTransactionDetailsPage(id) {
 
             document.getElementById("title").innerHTML = `${object['title']}`;
             document.getElementById("price").innerHTML = `${object['price']}`;
-            document.getElementById("poster").setAttribute('src', object['poster']);
+            document.getElementById("poster").setAttribute('src', `/media/poster/${object['poster']}`);
         }
     }
 }

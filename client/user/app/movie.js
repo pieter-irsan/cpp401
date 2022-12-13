@@ -28,7 +28,7 @@ function loadMovieDetailsPage(id) {
 
             const movieDetails = `
                 <div class="col-md-3 text-center">
-                    <img src="${object['poster']}" style="width:95%" />
+                    <img src="/media/poster/${object['poster']}" style="width:95%" />
                     <h4 id="movieTitle" class=""><b>${object['title']}</b></h4>
                     <h5 class="">${object['director']}</h5>
                     <h4 id="titleRating" class="mb-3">${object['rating']} ⭐</h4>
