@@ -54,8 +54,12 @@
                     <input id="title" class="form-control border border-dark" required>
                 </div>
                 <div class="col-3 mx-5 my-2">
-                    <label class="control-label">Poster <span><!--      EXISTING: POSTER-FILE.JPG      --></span></label>
+                    <label class="control-label">Poster</label>
                     <input id="poster" type="file" class="form-control border border-dark" accept="image/jpeg">
+                    <div id="posterExist" class="input-group" style="display: none">
+                        <button type="button" class="btn btn-white border border-dark" onclick="loadUploadButton('poster')">Edit</button>
+                        <input value="Poster already uploaded" class="form-control border border-dark" readonly>
+                    </div>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -76,6 +80,10 @@
                 <div class="col-3 mx-5 my-2">
                     <label class="control-label">Movie</label>
                     <input id="movie" type="file" class="form-control border border-dark" accept="video/mp4">
+                    <div id="movieExist" class="input-group" style="display: none">
+                        <button type="button" class="btn btn-white border border-dark" onclick="loadUploadButton('movie')">Edit</button>
+                        <input value="Movie already uploaded" class="form-control border border-dark" readonly>
+                    </div>
                 </div>
             </div>
             <div class="row justify-content-center">

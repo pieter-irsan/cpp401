@@ -3,12 +3,6 @@
 
 TODO:
 
-- Upload Movie file
-  1. Press submit
-  2. Wait for upload to finish
-  3. Need loading indicator
-  4. Then show alert when done / not done
-
 - for user client, save video in advance on project directory
 
 - user client use xhr while admin client use fetch api
