@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/resources/css/style.css">
 </head> 
 <body>
-    <nav class="navbar navbar-light bg-white fixed-top navbar-expand-md border border-dark">
+    <nav class="navbar navbar-light fixed-top navbar-expand-md border border-dark" style="background-color: rgba(144, 162, 166, 1)">
         <div class="container-fluid">
             <a class="navbar-brand" href="/admin/home/index.html">Online Cinema</a>
 
@@ -25,13 +25,13 @@
                         </a>
                         <a class="nav-item me-1 mb-1"> 
                         </a>
-                        <a class="nav-item me-1 mb-1">
+                        <a class="nav-item me-1 mb-1">  
                         </a>
                     </div>
                     <div class="mt-1">
                         <div class="input-group mb-1">
-                            <span class="btn btn-white border border-dark text-center">Administrator</span>
-                            <button onclick="logoutAdmin()" class="btn btn-white border border-dark">Logout</button>
+                            <span class="btn btn-white bg-white border border-dark text-center">Administrator</span>
+                            <button onclick="logoutAdmin()" class="btn btn-danger border border-dark">Logout</button>
                         </div>
                     </div>
                 </div>
@@ -49,14 +49,14 @@
 
         <div class="row justify-content-between">
             <div class="col-3">
-                <button class="btn btn-white border border-dark" onclick="location.href='/admin/movie/add.html'">Add Movie</button>
+                <button class="btn btn-white border border-dark theme" onclick="location.href='/admin/movie/add.html'">Add Movie</button>
                 <button class="btn btn-white border border-dark ms-3" onclick="location.href='/admin/movie/index.html'">Back to List</button>
             </div>
             <div class="col-4">
                 <form action="javascript:void(0)" onsubmit="searchMovie()">
                     <div class="input-group mb-1">
                         <input id="searchKeyword" class="form-control border border-dark" required>
-                        <button type="submit" class="btn btn-white border border-dark">Search</button>
+                        <button type="submit" class="btn btn-white border border-dark theme">Search</button>
                     </div>
                 </form>
             </div>

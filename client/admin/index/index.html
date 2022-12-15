@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/resources/css/style.css">
 </head> 
 <body>
-    <nav class="navbar navbar-light bg-white fixed-top navbar-expand-md border border-dark">
+    <nav class="navbar navbar-light fixed-top navbar-expand-md border border-dark" style="background-color: rgba(144, 162, 166, 1)">
         <div class="container-fluid">
             <a class="navbar-brand" href="/admin/home/index.html">Online Cinema</a>
 
@@ -30,8 +30,8 @@
                     </div>
                     <div class="mt-1">
                         <div class="input-group mb-1">
-                            <span class="btn btn-white border border-dark text-center">Administrator</span>
-                            <button onclick="logoutAdmin()" class="btn btn-white border border-dark">Logout</button>
+                            <span class="btn btn-white bg-white border border-dark text-center">Administrator</span>
+                            <button onclick="logoutAdmin()" class="btn btn-danger border border-dark">Logout</button>
                         </div>
                     </div>
                 </div>
@@ -49,15 +49,13 @@
         
         <div class="container px-5">
             <div class="row justify-content-center" style="height: 400px;">
-                <div style="cursor: pointer" class="col-4 mb-4 rounded-3 m-5 h-100 border border-dark" onclick="location.href='/admin/movie/index.html'">
-           <!-- <div class="col-4 mb-4 text-white bg-secondary bg-gradient shadow rounded-3 m-5 h-100"> -->
+                <div style="cursor: pointer" class="col-4 mb-4 rounded-3 m-5 h-100 border border-dark theme" onclick="location.href='/admin/movie/index.html'">
                     <div class="container-fluid py-5">
                         <h1 class="text-left">Movies</h1>
                     </div>
                 </div>
                 
-                <div style="cursor: pointer" class="col-4 mb-4 rounded-3 m-5 h-100 border border-dark" onclick="location.href='/admin/transaction/index.html'">
-           <!-- <div class="col-4 mb-4 text-white bg-secondary bg-gradient shadow rounded-3 m-5 h-100"> -->
+                <div style="cursor: pointer" class="col-4 mb-4 rounded-3 m-5 h-100 border border-dark theme" onclick="location.href='/admin/transaction/index.html'">
                     <div class="container-fluid py-5">
                         <h1 class="text-left">Transactions</h1>
                     </div>

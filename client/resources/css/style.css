@@ -1,4 +1,8 @@
 /* Admin */
+.theme {
+  background-color: rgba(182, 208, 215, 1);
+}
+
 .cell-pt {
   padding-top: 40px !important;
 }

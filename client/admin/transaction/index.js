@@ -1,26 +1,29 @@
 function loadTransactionTable() {
-    const req = new XMLHttpRequest();
-    req.open("GET", "http://localhost:2800/transaction/");
-    req.send();
-    req.onreadystatechange = function() {
-        console.log(this.responseText);
-        if (this.readyState == 4 && this.status == 200) {
-            let tableRow = ''; 
-            const objects = JSON.parse(this.responseText);
-            for (let object of objects) {
+    fetch("http://localhost:2800/transaction/")
+    .then((response) => {
+		if (!response.ok) return response.text().then(text => { throw new Error(text) })
+        
+        response.json()
+        .then((data) => {
+            let tableRow = "";
+            for (let item of data) {
                 tableRow += `
                     <tr> 
-                        <td class="py-3">${object['id']}</td>
-                        <td class="py-3">${object['username']}</td>
-                        <td class="py-3">${object['title']}</td>
-                        <td class="py-3">Rp ${object['price']}</td>
-                        <td class="py-3">${object['timestamp']}</td>
+                        <td class="py-3">${item.id}</td>
+                        <td class="py-3">${item.username}</td>
+                        <td class="py-3">${item.title}</td>
+                        <td class="py-3">Rp ${item.price.toLocaleString()}</td>
+                        <td class="py-3">${item.timestamp.toLocaleString()}</td>
                     </tr>
                 `;
             }
             document.getElementById("transactionTable").innerHTML = tableRow;
-        }
-    };
+        })
+    })
+    .catch((error) => {
+        alert("500 — Internal Server Error");
+        location.reload();
+    })
 }
 
 loadTransactionTable();

@@ -63,7 +63,7 @@ api.get('/search', function(request, response) {
 });
 
 api.get('/total', function(_, response) {
-    pool.query('select sum(price) from transaction', (error, result) => {
+    pool.query('select sum(price)::int from transaction', (error, result) => {
         if (error) response.status(500).json({ error: error });
         else response.status(200).json(result.rows);
     });

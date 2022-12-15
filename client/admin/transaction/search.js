@@ -2,46 +2,54 @@ const params = (new URL(document.location)).searchParams;
 const keyword = params.get("keyword");
 
 function loadTransactionSearchTable(keyword) {
-    const req = new XMLHttpRequest();
-    req.open("GET", "http://localhost:2800/transaction/search?keyword=" + keyword);
-    req.send();
-    req.onreadystatechange = function() {
-        console.log(this.responseText);
-        if (this.readyState == 4 && this.status == 200) {
-            let tableRow = ''; 
-            const objects = JSON.parse(this.responseText);
-            for (let object of objects) {
+    fetch("http://localhost:2800/transaction/search?keyword=" + keyword)
+    .then((response) => {
+		if (!response.ok) return response.text().then(text => { throw new Error(text) })
+        
+        response.json()
+        .then((data) => {
+            let tableRow = "";
+            for (let item of data) {
                 tableRow += `
                     <tr> 
-                        <td class="py-3">${object['id']}</td>
-                        <td class="py-3">${object['username']}</td>
-                        <td class="py-3">${object['title']}</td>
-                        <td class="py-3">Rp ${object['price']}</td>
-                        <td class="py-3">${object['timestamp']}</td>
+                        <td class="py-3">${item.id}</td>
+                        <td class="py-3">${item.username}</td>
+                        <td class="py-3">${item.title}</td>
+                        <td class="py-3">Rp ${item.price.toLocaleString()}</td>
+                        <td class="py-3">${item.timestamp.toLocaleString()}</td>
                     </tr>
                 `;
             }
             document.getElementById("transactionSearchTable").innerHTML = tableRow;
-        }
-    }
+        })
+    })
+    .catch((error) => {
+        alert("500 — Internal Server Error");
+        location.reload();
+    })
+}
+
+function loadTotalRevenue() {
+    fetch("http://localhost:2800/transaction/total/")
+    .then((response) => {
+		if (!response.ok) return response.text().then(text => { throw new Error(text) })
+        
+        response.json()
+        .then((data) => {
+            document.getElementById("totalRevenueInfo").textContent = `Total Revenue: Rp ${data[0].sum.toLocaleString()}`;
+        })
+    })
+    .catch((error) => {
+        alert("500 — Internal Server Error");
+        location.reload();
+    })
 }
 
 function searchTransaction() {
     location.href = '/admin/transaction/search.html?keyword=' + document.getElementById("searchKeyword").value;
 }
 
-function loadTotalRevenue() {
-    const req = new XMLHttpRequest();
-    req.open("GET", "http://localhost:2800/transaction/total");
-    req.send();
-    req.onreadystatechange = function() {
-        console.log(this.responseText);
-        if (this.readyState == 4 && this.status == 200) {
-            const [objects] = JSON.parse(this.responseText);
-            document.getElementById("totalRevenueInfo").textContent = 'Total Revenue: Rp ' + objects['sum'];
-        }
-    };
-}
+if (keyword) document.getElementById("searchKeyword").value = keyword;
 
 loadTransactionSearchTable(keyword);
-loadTotalRevenue()
+loadTotalRevenue();

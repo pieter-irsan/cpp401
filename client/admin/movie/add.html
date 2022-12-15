@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/resources/css/style.css">
 </head> 
 <body>
-    <nav class="navbar navbar-light bg-white fixed-top navbar-expand-md border border-dark">
+    <nav class="navbar navbar-light fixed-top navbar-expand-md border border-dark" style="background-color: rgba(144, 162, 166, 1)">
         <div class="container-fluid">
             <a class="navbar-brand" href="/admin/home/index.html">Online Cinema</a>
 
@@ -23,15 +23,15 @@
                     <div class="navbar-nav me-2 mb-lg-0">
                         <a class="nav-item me-1 mb-1">
                         </a>
-                        <a class="nav-item me-1 mb-1">   
+                        <a class="nav-item me-1 mb-1"> 
                         </a>
-                        <a class="nav-item me-1 mb-1">   
+                        <a class="nav-item me-1 mb-1">  
                         </a>
                     </div>
                     <div class="mt-1">
                         <div class="input-group mb-1">
-                            <span class="btn btn-white border border-dark text-center">Administrator</span>
-                            <button onclick="logoutAdmin()" type="submit" class="btn btn-white border border-dark">Logout</button>
+                            <span class="btn btn-white bg-white border border-dark text-center">Administrator</span>
+                            <button onclick="logoutAdmin()" class="btn btn-danger border border-dark">Logout</button>
                         </div>
                     </div>
                 </div>
@@ -88,8 +88,8 @@
             </div>
 
             <div class="row justify-content-center mt-5">
-                <button class="col-1 btn btn-white border border-dark mx-3" onclick="location.href='/admin/movie/index.html'">Back</button>
-                <button class="col-1 btn btn-white border border-dark mx-3" type="submit">Add</button>
+                <button class="col-1 btn btn-white border border-dark mx-3" type="button" onclick="location.href='/admin/movie/index.html'">Back</button>
+                <button class="col-1 btn btn-white border border-dark theme mx-3" type="submit">Add</button>
             </div>
 		</form>
 

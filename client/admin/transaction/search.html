@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/resources/css/style.css">
 </head> 
 <body>
-    <nav class="navbar navbar-light bg-white fixed-top navbar-expand-md border border-dark">
+    <nav class="navbar navbar-light fixed-top navbar-expand-md border border-dark" style="background-color: rgba(144, 162, 166, 1)">
         <div class="container-fluid">
             <a class="navbar-brand" href="/admin/home/index.html">Online Cinema</a>
 
@@ -23,15 +23,15 @@
                     <div class="navbar-nav me-2 mb-lg-0">
                         <a class="nav-item me-1 mb-1">
                         </a>
-                        <a class="nav-item me-1 mb-1">
+                        <a class="nav-item me-1 mb-1"> 
                         </a>
                         <a class="nav-item me-1 mb-1">  
                         </a>
                     </div>
                     <div class="mt-1">
                         <div class="input-group mb-1">
-                            <span class="btn btn-white border border-dark text-center">Administrator</span>
-                            <button onclick="logoutAdmin()" type="submit" class="btn btn-white border border-dark">Logout</button>
+                            <span class="btn btn-white bg-white border border-dark text-center">Administrator</span>
+                            <button onclick="logoutAdmin()" class="btn btn-danger border border-dark">Logout</button>
                         </div>
                     </div>
                 </div>
@@ -49,14 +49,14 @@
 
         <div class="row justify-content-between">
             <div class="col-auto">
-                <span class="btn btn-white border border-dark" id="totalRevenueInfo">Total Revenue: &nbsp&nbspLoading...</span>
+                <span style="background-color: rgba(131, 135, 140, 1)" class="btn btn-white border border-dark text-white" id="totalRevenueInfo">Total Revenue: &nbsp&nbspLoading...</span>
 				<a class="btn btn-white border border-dark ms-3" onclick="location.href='/admin/transaction/index.html'">Back to List</a>
             </div>
             <div class="col-4">
                 <form action="javascript:void(0)" onsubmit="searchTransaction()">
                     <div class="input-group mb-1">
                         <input id="searchKeyword" class="form-control border border-dark" required>
-                        <button type="submit" class="btn btn-white border border-dark">Search</button>
+                        <button type="submit" class="btn btn-white border border-dark theme">Search</button>
                     </div>
                 </form>
             </div>

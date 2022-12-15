@@ -1,26 +1,27 @@
 function loadMovieTable() {
-    const req = new XMLHttpRequest();
-    req.open("GET", "http://localhost:2800/movie/");
-    req.send();
-    req.onreadystatechange = function() {
-        console.log(this.responseText)
-        if (this.readyState == 4 && this.status == 200) {
-            let tableRow = ''; 
-            const objects = JSON.parse(this.responseText);
-            for (let object of objects) {
+    fetch("http://localhost:2800/movie/", {
+        method: "GET"
+    })
+    .then((response) => {
+		if (!response.ok) return response.text().then(text => { throw new Error(text) })
+        
+        response.json()
+        .then((data) => {
+            let tableRow = "";
+            for (let item of data) {
                 tableRow += `
                     <tr>
-                        <td class="cell-pt">${object['title']}</td>
-                        <td class="cell-pt">${object['director']}</td>
-                        <td class="cell-pt text-start">${object['synopsis']}</td>
-                        <td class="cell-pt">Rp ${object['price'].toLocaleString()}</td>
-                        <td><img style="width:150px; height:auto;" src="/media/poster/${object['poster']}"></td>
+                        <td class="cell-pt">${item.title}</td>
+                        <td class="cell-pt">${item.director}</td>
+                        <td class="cell-pt text-start">${item.synopsis}</td>
+                        <td class="cell-pt">Rp ${item.price.toLocaleString()}</td>
+                        <td><img style="width:150px; height:auto;" src="/media/poster/${item.poster}"></td>
                         <td class="container position-relative">
                             <div class="col position-absolute top-50 start-50 translate-middle">
-                                <button class="btn btn-white border border-dark w-10 h-10 my-2" onclick="location.href='/admin/movie/edit.html?id=${object['id']}'">
+                                <button style="background-color: rgba(114, 150, 203, 1)" class="btn btn-white border border-dark w-10 h-10 my-2" onclick="location.href='/admin/movie/edit.html?id=${item.id}'">
                                     <img src="/resources/icons/pencil-square.svg" alt="Edit">
                                 </button>
-                                <button class="btn btn-white border border-dark w-10 h-10 my-2" onclick="deleteMovie(${object['id']})">
+                                <button style="background-color: rgba(181, 78, 78, 1)" class="btn btn-white border border-dark w-10 h-10 my-2" onclick="deleteMovie(${item.id})">
                                     <img src="/resources/icons/trash.svg" alt="Delete">
                                 </button>
                             </div>
@@ -29,8 +30,12 @@ function loadMovieTable() {
                 `;
             }
             document.getElementById("movieTable").innerHTML = tableRow;
-        }
-    }
+        })
+    })
+    .catch((error) => {
+        alert("500 — Internal Server Error");
+        location.reload();
+    })
 }
 
 loadMovieTable();

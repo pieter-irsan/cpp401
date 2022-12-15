@@ -31,7 +31,9 @@ async function editMovie() {
 }
 
 function loadEditForm() {
-    fetch("http://localhost:2800/movie/detail/" + id)
+    fetch("http://localhost:2800/movie/detail/" + id, {
+        method: "GET"
+    })
     .then((response) => {
 		if (!response.ok) return response.text().then(text => { throw new Error(text) })
         

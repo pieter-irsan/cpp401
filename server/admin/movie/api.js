@@ -43,11 +43,13 @@ api.get('/detail/:id', function(request, response) {
 
 api.post('/', upload.fields(fieldName), function(request, response) {
     let { title, director, synopsis, price, poster, trailer, movie } = request.body;
-    if (Object.keys(request.files).length > 0) {
+    if (typeof request.files.poster != 'undefined' && Object.keys(request.files.poster).length > 0) {
         poster = request.files.poster[0].filename;
+    }
+    if (typeof request.files.movie != 'undefined' && Object.keys(request.files.movie).length > 0) {
         movie = request.files.movie[0].filename;
     }
-    pool.query(`insert into movie (title, director, synopsis, price, poster, trailer, movie) values ($1, $2, $3, $4, ${poster ? '$5' : 'null'}, $6, ${movie ? '$7' : 'null'})`, [title, director, synopsis, price, poster, trailer, movie], (error, result) => {
+    pool.query(`insert into movie (title, director, synopsis, price, poster, trailer, movie) values ($1, $2, $3, $4, ${(poster) ? '$5' : 'null'}, $6, ${(movie) ? '$7' : 'null'}) returning $5, $7`, [title, director, synopsis, price, poster, trailer, movie], (error, result) => {
         if (error) response.status(500).json({ error: error });
         else response.status(200).json(result.rows)
     });
