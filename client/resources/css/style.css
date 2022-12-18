@@ -3,6 +3,18 @@
   background-color: rgba(182, 208, 215, 1);
 }
 
+.theme-navbar {
+  background-color: rgba(144, 162, 166, 1)
+}
+
+.theme-edit {
+  background-color: rgba(114, 150, 203, 1)
+}
+
+.theme-delete {
+  background-color: rgba(181, 78, 78, 1)
+}
+
 .cell-pt {
   padding-top: 40px !important;
 }

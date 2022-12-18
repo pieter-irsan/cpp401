@@ -19,16 +19,15 @@ function loadTransactionDetailsPage(id) {
 
 function addTransaction() {
 	const title = document.getElementById("title").innerHTML;
-    const price = document.getElementById("price").innerHTML;
+    const price = document.getElementById("price").innerText;
 
 	const req = new XMLHttpRequest();
-	req.open("POST", "http://localhost:2800/transaction");
-	req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+	req.open("POST", "http://localhost:2800/transaction/");
 	req.send(JSON.stringify({ 
 		"title": title, 
 		"price": price
 	}));
-
+console.log(req)
 	req.onreadystatechange = function() {
 		console.log(this.readyState, this.status)
         if (this.readyState == 4 && this.status == 200) {

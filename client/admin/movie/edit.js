@@ -2,6 +2,9 @@ const params = (new URL(document.location)).searchParams;
 const id = params.get("id");
 
 async function editMovie() {
+    const toast = new bootstrap.Toast(document.getElementById('toast'), { autohide: false })
+    toast.show()
+
     const poster = document.getElementById('poster').files[0];
     const movie = document.getElementById('movie').files[0];
     const formData = new FormData(editForm);

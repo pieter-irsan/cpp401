@@ -9,14 +9,16 @@ function loadTransactionSearchTable(keyword) {
         response.json()
         .then((data) => {
             let tableRow = "";
+            let dateTime = ""
             for (let item of data) {
+                dateTime = new Date(item.timestamp)
                 tableRow += `
                     <tr> 
                         <td class="py-3">${item.id}</td>
                         <td class="py-3">${item.username}</td>
                         <td class="py-3">${item.title}</td>
                         <td class="py-3">Rp ${item.price.toLocaleString()}</td>
-                        <td class="py-3">${item.timestamp.toLocaleString()}</td>
+                        <td class="py-3">${dateTime.toLocaleString()}</td>
                     </tr>
                 `;
             }

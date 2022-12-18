@@ -1,4 +1,7 @@
 function addMovie() {
+    const toast = new bootstrap.Toast(document.getElementById('toast'), { autohide: false })
+    toast.show()
+
 	const poster = document.getElementById('poster').files[0];
     const movie = document.getElementById('movie').files[0];
 	const formData = new FormData(addForm);
@@ -17,8 +20,11 @@ function addMovie() {
         body: formData
     })
     .then((response) => {
+        if (response.status == 409) {
+			alert("Movie already exists!");
+			return location.reload();
+		}
 		if (!response.ok) return response.text().then(text => { throw new Error(text) })
-        response.json()
     
         alert("Data added successfully");
 		return location.href = '/admin/movie/index.html';

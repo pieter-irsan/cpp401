@@ -5,14 +5,10 @@ TODO:
 
 - for user client, save video in advance on project directory
 
-- user client use xhr while admin client use fetch api
-
-- Forgot password feature (kayanya gaperlu kirim token lewat email...)
-
-- Create single pgsql pool
+- create single pgsql pool
   - pg_dump from bit.io
 
-- After payment, display alert: "Your movie will be available on the My Movies page"
+- after payment, display alert: "Your movie will be available on the My Movies page"
 
 
 */

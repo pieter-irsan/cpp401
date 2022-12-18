@@ -18,10 +18,10 @@ function loadMovieTable() {
                         <td><img style="width:150px; height:auto;" src="/media/poster/${item.poster}"></td>
                         <td class="container position-relative">
                             <div class="col position-absolute top-50 start-50 translate-middle">
-                                <button style="background-color: rgba(114, 150, 203, 1)" class="btn btn-white border border-dark w-10 h-10 my-2" onclick="location.href='/admin/movie/edit.html?id=${item.id}'">
+                                <button class="btn btn-white border border-dark theme-edit w-10 h-10 my-2" onclick="location.href='/admin/movie/edit.html?id=${item.id}'">
                                     <img src="/resources/icons/pencil-square.svg" alt="Edit">
                                 </button>
-                                <button style="background-color: rgba(181, 78, 78, 1)" class="btn btn-white border border-dark w-10 h-10 my-2" onclick="deleteMovie(${item.id})">
+                                <button class="btn btn-white border border-dark theme-delete w-10 h-10 my-2" onclick="deleteMovie(${item.id})">
                                     <img src="/resources/icons/trash.svg" alt="Delete">
                                 </button>
                             </div>

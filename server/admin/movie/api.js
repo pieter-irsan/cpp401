@@ -50,6 +50,7 @@ api.post('/', upload.fields(fieldName), function(request, response) {
         movie = request.files.movie[0].filename;
     }
     pool.query(`insert into movie (title, director, synopsis, price, poster, trailer, movie) values ($1, $2, $3, $4, ${(poster) ? '$5' : 'null'}, $6, ${(movie) ? '$7' : 'null'}) returning $5, $7`, [title, director, synopsis, price, poster, trailer, movie], (error, result) => {
+        if (error && error.detail.includes('exists')) return response.status(409).json({ error: error });
         if (error) response.status(500).json({ error: error });
         else response.status(200).json(result.rows)
     });
@@ -92,7 +93,7 @@ api.get('/purchased', function(request, response) {
     if (request.cookies.token) [username, _] = auth.verifyToken(request.cookies.token);
     else return response.status(403);
 
-    pool.query("select * from movie where title in (select title from transaction where username = $1 and (now() - timestamp) < '48 hours'::interval);", [username], (error, result) => {
+    pool.query("select * from movie where title in (select title from transaction where username = $1 and (now() - timestamp) < '48 hours'::interval)", [username], (error, result) => {
         if (error) response.status(500).json({ error: error });
         else response.status(200).json(result.rows)
     });

@@ -31,7 +31,10 @@ api.post('/', function(request, response) {
     let username = ''
     if (request.cookies.token) [username, _] = auth.verifyToken(request.cookies.token);
     else return response.status(403).end();
+                            console.log(request.body)
+                            console.log(username, title, price)
     pool.query('insert into transaction (username, title, price, timestamp) values ($1, $2, $3, now())', [username, title, price], (error, result) => {
+                                                    error ? console.log(error) : console.log(result)
         if (error) response.status(500).json({ error: error });
         else response.status(200).json(result.rows);
     });

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/resources/css/style.css">
 </head> 
 <body>
-    <nav class="navbar navbar-light fixed-top navbar-expand-md border border-dark" style="background-color: rgba(144, 162, 166, 1)">
+    <nav class="navbar navbar-light fixed-top navbar-expand-md border border-dark theme-navbar">
         <div class="container-fluid">
             <a class="navbar-brand" href="/admin/home/index.html">Online Cinema</a>
 
@@ -21,16 +21,13 @@
             <div class="d-md-flex justify-content-md-end">
                 <div class="collapse navbar-collapse" id="navbarContent">
                     <div class="navbar-nav me-2 mb-lg-0">
-                        <a class="nav-item me-1 mb-1">
-                        </a>
-                        <a class="nav-item me-1 mb-1"> 
-                        </a>
-                        <a class="nav-item me-1 mb-1">  
-                        </a>
+                        <button class="btn btn-white border border-dark theme mx-2" onclick="location.href='/admin/home/index.html'">&nbsp&nbsp&nbspHome&nbsp&nbsp&nbsp</button>
+                        <button class="btn btn-white border border-dark bg-white mx-2" onclick="location.href='/admin/movie/index.html'">&nbsp&nbsp&nbspMovie&nbsp&nbsp&nbsp</button>
+                        <button class="btn btn-white border border-dark bg-white mx-2" onclick="location.href='/admin/transaction/index.html'">Transaction</button>
                     </div>
-                    <div class="mt-1">
+                    <div class="mt-1 ms-3">
                         <div class="input-group mb-1">
-                            <span class="btn btn-white bg-white border border-dark text-center">Administrator</span>
+                            <span style="cursor: default" class="btn btn-white bg-light border border-dark text-secondary text-center">Administrator</span>
                             <button onclick="logoutAdmin()" class="btn btn-danger border border-dark">Logout</button>
                         </div>
                     </div>
@@ -49,7 +46,7 @@
         
         <div class="container px-5">
             <div class="row justify-content-center" style="height: 400px;">
-                <div style="cursor: pointer" class="col-4 mb-4 rounded-3 m-5 h-100 border border-dark theme" onclick="location.href='/admin/movie/index.html'">
+                <div style="cursor: pointer" class="col-4 mb-4 rounded-3 m-5 h-100 border border-dark bg-gradient theme" onclick="location.href='/admin/movie/index.html'">
                     <div class="container-fluid py-5">
                         <h1 class="text-left">Movies</h1>
                     </div>
