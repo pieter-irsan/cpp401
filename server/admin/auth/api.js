@@ -1,15 +1,8 @@
 const express = require('express');
 const api = express.Router();
 const auth = require('./auth');
-
-const Pool = require('pg').Pool;
-const pool = new Pool({
-    user: 'admin',
-    host: 'localhost',
-    database: 'online_cinema',
-    password: '123',
-    port: 5432
-});
+const db = require('../../db');
+const pool = db.getPool();
 
 api.post('/login', function(request, response) {
     const { username, password } = request.body;

@@ -11,7 +11,6 @@ function loginUser() {
 	}));
 
 	req.onreadystatechange = function() {
-		console.log(this.readyState, this.status)
         if (this.readyState == 4 && this.status == 200) {
             const response = JSON.parse(this.responseText);
 			document.cookie = `token=${response.token}; max-age=86400; path=/`;

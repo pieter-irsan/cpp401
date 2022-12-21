@@ -13,7 +13,6 @@ function registerUser() {
 	}));
 
 	req.onreadystatechange = function() {
-		console.log(this.readyState, this.status)
         if (this.readyState == 4 && this.status == 200) {
             alert("Successfully registered");
 			location.href = '/auth/login.html';

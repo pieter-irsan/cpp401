@@ -8,10 +8,9 @@ function loadTransactionDetailsPage(id) {
     req.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             const [object] = JSON.parse(this.responseText);
-            console.log(object)
 
             document.getElementById("title").innerHTML = `${object['title']}`;
-            document.getElementById("price").innerHTML = `${object['price']}`;
+            document.getElementById("price").innerHTML = `Rp <span id="priceAmount">${object['price'].toLocaleString()}</span>`;
             document.getElementById("poster").setAttribute('src', `/media/poster/${object['poster']}`);
         }
     }
@@ -19,19 +18,19 @@ function loadTransactionDetailsPage(id) {
 
 function addTransaction() {
 	const title = document.getElementById("title").innerHTML;
-    const price = document.getElementById("price").innerText;
+    const price = document.getElementById("priceAmount").innerHTML;
 
 	const req = new XMLHttpRequest();
 	req.open("POST", "http://localhost:2800/transaction/");
+    req.setRequestHeader("Content-Type", "application/json");
 	req.send(JSON.stringify({ 
 		"title": title, 
 		"price": price
 	}));
-console.log(req)
+
 	req.onreadystatechange = function() {
-		console.log(this.readyState, this.status)
         if (this.readyState == 4 && this.status == 200) {
-			alert("Transaction successful");
+			alert("Transaction successful! Your movie will be available on the My Movies page");
 			return location.href = '/app/index.html';
 		}
         else if (this.readyState == 4 && this.status == 403) {
@@ -39,7 +38,7 @@ console.log(req)
 			return location.href = '/auth/login.html';
         }
         else if (this.readyState == 4 && this.status == 500) {
-            alert("Something went wrong!");
+            alert("500 — Internal Server Error");
             location.reload();
         }
 	}

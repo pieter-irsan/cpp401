@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/resources/css/style.css">
 </head> 
 <body>
-    <nav class="navbar navbar-light bg-white fixed-top navbar-expand-md border border-dark">
+    <nav class="navbar navbar-light theme-navbar fixed-top navbar-expand-md border border-dark">
         <div class="container-fluid">
 			<a class="navbar-brand" href="/app/index.html">Online Cinema</a>
 
@@ -21,19 +21,15 @@
             <div class="d-md-flex justify-content-md-end">
                 <div class="collapse navbar-collapse" id="navbarContent">
                     <div class="navbar-nav me-1 mb-lg-0">
-                        <a class="nav-item mx-2 my-1" href="/app/index.html">
-                            <span class="btn btn-white border border-dark">Home</span>
-                        </a>
-                        <a id="registerButton" class="nav-item mx-2 my-1" href="/auth/register.html">
-							<span class="btn btn-white border border-dark">Register</span>
-                        </a>
-                        <a id="loginButton" class="nav-item mx-2 my-1" href="/auth/login.html">
-							<span class="btn btn-white border border-dark">Login</span>
-                        </a>
-                        <form class="ms-2 mt-1" action="javascript:void(0)" onsubmit="search()">
+                        <button class="btn btn-white border border-dark bg-white mx-2" onclick="location.href='/app/index.html'">Home</button>
+                        <button id="registerButton" class="btn btn-white border border-dark bg-white mx-2" onclick="location.href='/auth/register.html'">Register</button>
+                        <button id="loginButton" class="btn btn-white border border-dark bg-white mx-2" onclick="location.href='/auth/login.html'">Login</button>
+                    </div>
+                    <div class="mt-1 ms-2">
+                        <form class="" action="javascript:void(0)" onsubmit="search()">
                             <div class="input-group mb-1">
                                 <input id="searchKeyword" class="form-control border border-dark" required>
-                                <button type="submit" class="btn btn-white border border-dark">Search</button>
+                                <button type="submit" class="btn btn-white theme border border-dark">Search</button>
                             </div>
                         </form>
                     </div>
@@ -44,6 +40,28 @@
     <div class="container body-content pt-4-half pb-5">
 
         <div class="row mt-5 mb-5 justify-content-center" id="movieDetails">
+            <div class="col-md-3 text-center">
+                <img id="poster" src="/media/poster/${object['poster']}" style="width:95%" />
+                <h4 id="title" class="text-bold"></h4>
+                <h5 id="director"></h5>
+                <h4 id="titleRating" class="mb-3"></h4>
+                <div class="input-group justify-content-center">
+                    <span id="price" class="input-group-text border border-dark bg-white"></span>
+                    <button type="button" onclick="purchaseMovie()" class="btn btn-white theme border border-dark">Buy Now</button>
+                </div>
+            </div>
+            <div class="offset-md-1 col-md-8">
+                <p class="fs-5 mb-1"><b>Synopsis</b></p>
+                <hr class="mt-0" />
+                <p id="synopsis" class="fs-6 mb-1"></p>
+                <p class="fs-5 mb-1 mt-2"><b>Trailer</b></p>
+                <hr class="mt-0" />
+                <div class="row justify-content-center">
+                    <div class="col-auto ratio ratio-16x9" style="width:95%">
+                        <iframe id="trailer" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
 <!--
             <div class="col-md-3 text-center">
                 <img src="" style="width:95%" />
@@ -78,7 +96,7 @@
                     <form class="row justify-content-center px-5 mt-3 mb-4" action="javascript:void(0)" onsubmit="addRating()">
                         <h1 id="rating" class="text-center mb-4">⭐⭐⭐⭐⭐</h1>
                         <textarea id="review" class="border border-dark form-control text-center w-75 py-4-half mb-3" maxlength="300" placeholder="Write your review here..." required></textarea>
-                        <button class="border border-dark btn btn-white w-75" type="submit">Submit</button>
+                        <button class="border border-dark btn btn-white theme w-75" type="submit">Submit</button>
                     </form>
                 </div>
                 <div class="row">

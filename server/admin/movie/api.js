@@ -66,7 +66,6 @@ api.put('/:id', upload.fields(fieldName), function(request, response) {
         movie = request.files.movie[0].filename;
     }
     
-    console.log(`update movie set title = $2, director = $3, synopsis = $4, price = $5, poster = ${(poster) ? '$6' : 'poster'}, trailer = $7, movie = ${(movie) ? '$8' : 'movie'} where id = $1 returning $6, $8`)
     pool.query(`update movie set title = $2, director = $3, synopsis = $4, price = $5, poster = ${(poster) ? '$6' : 'poster'}, trailer = $7, movie = ${(movie) ? '$8' : 'movie'} where id = $1 returning $6, $8`, [id, title, director, synopsis, price, poster, trailer, movie], (error, result) => {
         if (error) response.status(500).json({ error: error });
         else response.status(200).json(result.rows)

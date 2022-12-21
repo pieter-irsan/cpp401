@@ -1,17 +1,3 @@
-/*
-
-
-TODO:
-
-- for user client, save video in advance on project directory
-
-- create single pgsql pool
-  - pg_dump from bit.io
-
-- after payment, display alert: "Your movie will be available on the My Movies page"
-
-
-*/
 require('dotenv').config();
 const cors = require('cors');
 const express = require('express');

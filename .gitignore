@@ -1,0 +1,4 @@
+node_modules
+server/media/poster/*
+server/media/movie/*
+.env

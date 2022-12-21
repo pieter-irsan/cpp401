@@ -30,7 +30,6 @@ function addMovie() {
 		return location.href = '/admin/movie/index.html';
     })
     .catch((error) => {
-		console.log(error)
         alert("500 — Internal Server Error");
         location.reload();
     })

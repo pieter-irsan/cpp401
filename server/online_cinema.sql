@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 14.5
+-- Dumped from database version 14.6
 -- Dumped by pg_dump version 14.2
 
 SET statement_timeout = 0;
@@ -172,14 +172,22 @@ ALTER TABLE public."user" ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 --
 
 COPY public.movie (id, title, director, synopsis, price, poster, trailer, movie) FROM stdin;
-153	The Batman	Matt Reeves	Batman is called to intervene when the mayor of Gotham City is murdered. Soon, his investigation leads him to uncover a web of corruption, linked to his own dark past.	15000	https://www.themoviedb.org/t/p/w300_and_h450_bestv2/74xTEgt7R36Fpooo50r9T25onhq.jpg	https://www.youtube.com/embed/mqqft2x_Aa4	C:/Users/piete/Videos/stock_nightsky.mp4
-150	Pulp Fiction	Quentin Tarantino	In the realm of underworld, a series of incidents intertwines the lives of two Los Angeles mobsters, a gangster's wife, a boxer and two small-time criminals.	15000	https://www.themoviedb.org/t/p/w300_and_h450_bestv2/fIE3lAGcZDV1G6XM5KmuWnNsPp1.jpg	https://www.youtube.com/embed/tGpTpVyI_OQ	C:/Users/piete/Videos/stock_nightsky.mp4
-1	Jaws	Steven Spielberg	A police chief, a marine scientist and a fisherman spring into action after a white shark terrorises the inhabitants of Amity, a quiet island.	10000	https://www.themoviedb.org/t/p/w300_and_h450_bestv2/lxM6kqilAdpdhqUl2biYp5frUxE.jpg	https://www.youtube.com/embed/U1fu_sA7XhE	C:/Users/piete/Videos/stock_nightsky.mp4
-156	Thor: Love and Thunder	Taika Waititi	After his retirement is interrupted by Gorr the God Butcher, a galactic killer who seeks the extinction of the gods, Thor Odinson enlists the help of King Valkyrie, Korg, and ex-girlfriend Jane Foster, who now wields Mjolnir as the Mighty Thor. Together they embark upon a harrowing cosmic adventure.	10000	https://www.themoviedb.org/t/p/w300_and_h450_bestv2/pIkRyD18kl4FhoCNQuWxWu5cBLM.jpg	https://www.youtube.com/embed/Go8nTmfrQd8	C:/Users/piete/Videos/stock_nightsky.mp4
-158	Tenet	Christopher Nolan	Armed with only one word - Tenet - and fighting for the survival of the entire world, the Protagonist journeys through a twilight world of international espionage on a mission that will unfold in something beyond real time.	5000	https://www.themoviedb.org/t/p/w300_and_h450_bestv2/oh8XmxWlySHgGLlx8QOBmq9k72j.jpg	https://www.youtube.com/embed/LdOM0x0XDMo	C:/Users/piete/Videos/stock_nightsky.mp4
-157	Interstellar	Christopher Nolan	The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.	15000	https://www.themoviedb.org/t/p/w300_and_h450_bestv2/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg	https://www.youtube.com/embed/827FNDpQWrQ	C:/Users/piete/Videos/stock_nightsky.mp4
-159	Joker	Todd Phillips	During the 1980s, a failed stand-up comedian is driven insane and turns to a life of crime and chaos in Gotham City while becoming an infamous psychopathic crime figure.	10000	https://www.themoviedb.org/t/p/w300_and_h450_bestv2/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg	https://www.youtube.com/embed/t433PEQGErc	C:/Users/piete/Videos/stock_nightsky.mp4
-160	Parasite	A Korean Man	Lorem ipsum dolor sit amet	10000	poster.jpg	Embedded trailer URL	movie.mp4
+190	Maleficent	Robert Stromberg	A beautiful, pure-hearted young woman, Maleficent has an idyllic life growing up in a peaceable forest kingdom, until one day when an invading army threatens the harmony of the land.	15000	maleficent-poster.jpg	https://youtube.com/embed/n0OFH4xpPr4	maleficent-movie.mp4
+159	Joker	Todd Phillips	During the 1980s, a failed stand-up comedian is driven insane and turns to a life of crime and chaos in Gotham City while becoming an infamous psychopathic crime figure.	10000	joker-poster.jpg	https://www.youtube.com/embed/t433PEQGErc	joker-movie.mp4
+184	Sri Asih	Upi Avianto	Alana doesn’t understand why she is always influenced by anger. But she has always been trying to fight it. As she reaches adulthood, Alana discover the truth about her origin: she’s not an ordinary human being.	15000	sri-asih-poster.jpg	https://youtube.com/embed/564eG_1Mvf0	sri-asih-movie.mp4
+160	Parasite	Bong Joon-ho	The struggling Kim family sees an opportunity when the son starts working for the wealthy Park family. Soon, all of them find a way to work within the same household and start living a parasitic life.	10000	parasite-poster.jpg	https://www.youtube.com/embed/5xH0HfJHsaY	parasite-movie.mp4
+186	Enola Holmes 2	Harry Bradbeer	Now a detective-for-hire like her infamous brother, Enola Holmes takes on her first official case to find a missing girl, as the sparks of a dangerous conspiracy ignite a mystery that requires the help of friends — and Sherlock himself — to unravel.	10000	enola-holmes-2-poster.jpg	https://youtube.com/embed/KKXNmYoPkx0	enola-holmes-2-movie.mp4
+187	Me Before You	Jojo Moyes	A small town girl is caught between dead-end jobs. A high-profile, successful man becomes wheelchair bound following an accident. The man decides his life is not worth living until the girl is hired for six months to be his new caretaker. 	10000	me-before-you-poster.jpg	https://youtube.com/embed/Eh993__rOxA	me-before-you-movie.mp4
+185	Black Panther: Wakanda Forever	Ryan Coogler	Queen Ramonda, Shuri, M’Baku, Okoye and the Dora Milaje fight to protect their nation from intervening world powers in the wake of King T’Challa’s death. As the Wakandans strive to embrace their next chapter, the heroes must band together with the help of War Dog Nakia and Everett Ross.	15000	black-panther-wakanda-forever-poster.jpg	https://youtube.com/embed/RlOB3UALvrQ	black-panther-wakanda-forever-movie.mp4
+188	The Fault In Our Start	Josh Boone	Despite the tumor-shrinking medical miracle that has bought her a few years, Hazel has never been anything but terminal, her final chapter inscribed upon diagnosis.	15000	the-fault-in-our-start-poster.jpg	https://youtube.com/embed/9ItBvH5J6ss	the-fault-in-our-start-movie.mp4
+189	Divergent	Neil Burger	In a world divided into factions based on personality types, Tris learns that she's been classified as Divergent and won't fit in. When she discovers a plot to destroy Divergents.	20000	divergent-poster.jpg	https://youtube.com/embed/sutgWjz10sM	divergent-movie.mp4
+158	Tenet	Christopher Nolan	Armed with only one word - Tenet - and fighting for the survival of the entire world, the Protagonist journeys through a twilight world of international espionage on a mission that will unfold in something beyond real time.	5000	tenet-poster.jpg	https://www.youtube.com/embed/LdOM0x0XDMo	tenet-movie.mp4
+157	Interstellar	Christopher Nolan	The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.	15000	interstellar-poster.jpg	https://www.youtube.com/embed/827FNDpQWrQ	interstellar-movie.mp4
+156	Thor: Love and Thunder	Taika Waititi	After his retirement is interrupted by Gorr the God Butcher, a galactic killer who seeks the extinction of the gods, Thor Odinson enlists the help of King Valkyrie, Korg, and ex-girlfriend Jane Foster, who now wields Mjolnir as the Mighty Thor. Together they embark upon a harrowing cosmic adventure.	10000	thor-love-and-thunder-poster.jpg	https://www.youtube.com/embed/Go8nTmfrQd8	thor-love-and-thunder-movie.mp4
+153	The Batman	Matt Reeves	Batman is called to intervene when the mayor of Gotham City is murdered. Soon, his investigation leads him to uncover a web of corruption, linked to his own dark past.	15000	the-batman-poster.jpg	https://www.youtube.com/embed/mqqft2x_Aa4	the-batman-movie.mp4
+150	Pulp Fiction	Quentin Tarantino	In the realm of underworld, a series of incidents intertwines the lives of two Los Angeles mobsters, a gangster's wife, a boxer and two small-time criminals.	15000	pulp-fiction-poster.jpg	https://www.youtube.com/embed/tGpTpVyI_OQ	pulp-fiction-movie.mp4
+1	Jaws	Steven Spielberg	A police chief, a marine scientist and a fisherman spring into action after a white shark terrorises the inhabitants of Amity, a quiet island.	10000	jaws-poster.jpg	https://www.youtube.com/embed/U1fu_sA7XhE	jaws-movie.mp4
+183	Love, Rosie	Christian Ditter	Since the moment they met at age 5, Rosie and Alex have been best friends, facing the highs and lows of growing up side by side. A fleeting shared moment, one missed opportunity, and the decisions that follow send their lives in completely different directions. 	20000	love-rosie-poster.jpg	https://youtube.com/embed/5zL3YJKygd4	love-rosie-movie.mp4
 \.
 
 
@@ -188,6 +196,9 @@ COPY public.movie (id, title, director, synopsis, price, poster, trailer, movie)
 --
 
 COPY public.rating (id, username, title, rating, review) FROM stdin;
+12	test_user	Parasite	5	Amazing movie!
+13	user_testing	Parasite	5	Such a masterpiece by Bong Joon-ho
+14	user_testing	Jaws	5	Had me on the edge of my seat!
 \.
 
 
@@ -209,6 +220,11 @@ COPY public.transaction (id, username, title, price, "timestamp") FROM stdin;
 3	dummy_user	Joker	10000	2022-11-10 21:22:01.994864
 4	dummy_user	The Batman	15000	2022-11-08 00:15:51.388604
 5	dummy_user	Jaws	10000	2022-11-15 22:47:10.350774
+6	test_user	\N	\N	2022-12-19 09:54:10.731348
+7	test_user	\N	\N	2022-12-19 09:57:05.349771
+8	test_user	Parasite	10000	2022-12-19 10:38:55.028432
+9	user_testing	Parasite	10000	2022-12-19 13:51:16.507277
+10	user_testing	Jaws	10000	2022-12-19 13:54:09.908079
 \.
 
 
@@ -224,6 +240,7 @@ COPY public."user" (id, username, email, password, user_type) FROM stdin;
 47	user_test	user_test@email.com	123	user
 49	user_abc	user_abc@email.com	123	user
 51	user_xyz	user_xyz@email.com	123	user
+52	test_user	test_user@email.com	123	user
 \.
 
 
@@ -231,14 +248,14 @@ COPY public."user" (id, username, email, password, user_type) FROM stdin;
 -- Name: movie_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.movie_id_seq', 160, true);
+SELECT pg_catalog.setval('public.movie_id_seq', 190, true);
 
 
 --
 -- Name: rating_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.rating_id_seq', 10, true);
+SELECT pg_catalog.setval('public.rating_id_seq', 14, true);
 
 
 --
@@ -252,14 +269,14 @@ SELECT pg_catalog.setval('public.reset_password_log_id_seq', 1, false);
 -- Name: transaction_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.transaction_id_seq', 5, true);
+SELECT pg_catalog.setval('public.transaction_id_seq', 10, true);
 
 
 --
 -- Name: user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.user_id_seq', 51, true);
+SELECT pg_catalog.setval('public.user_id_seq', 52, true);
 
 
 --

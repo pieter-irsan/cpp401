@@ -8,10 +8,9 @@ function loadMovieStreamingPage(id) {
     req.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             const [object] = JSON.parse(this.responseText);
-            console.log(object)
 
             document.getElementById("title").innerHTML = object['title']
-            document.getElementById("videoPlayer").setAttribute('src', object['movie']);
+            document.getElementById("videoPlayer").setAttribute('src', `/media/movie/${object['movie']}`);
         }
     }
 }

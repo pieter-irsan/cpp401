@@ -1,15 +1,8 @@
 const express = require('express');
 const api = express.Router();
 const auth = require('../auth/auth');
-
-const Pool = require('pg').Pool;
-const pool = new Pool({
-    user: 'admin',
-    host: 'localhost',
-    database: 'online_cinema',
-    password: '123',
-    port: 5432
-});
+const db = require('../../db');
+const pool = db.getPool();
 
 api.get('/', function(_, response) {
     pool.query('select * from transaction order by id desc', (error, result) => {
@@ -27,14 +20,13 @@ api.get('/detail/:id', function(request, response) {
 });
 
 api.post('/', function(request, response) {
-    const { title, price } = request.body;
-    let username = ''
+    let { title, price } = request.body;
+    let username = '';
+    price = price.replace(',', '');
     if (request.cookies.token) [username, _] = auth.verifyToken(request.cookies.token);
     else return response.status(403).end();
-                            console.log(request.body)
-                            console.log(username, title, price)
+
     pool.query('insert into transaction (username, title, price, timestamp) values ($1, $2, $3, now())', [username, title, price], (error, result) => {
-                                                    error ? console.log(error) : console.log(result)
         if (error) response.status(500).json({ error: error });
         else response.status(200).json(result.rows);
     });

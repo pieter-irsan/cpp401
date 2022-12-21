@@ -3,7 +3,6 @@ function loadPurchasedMovies() {
     req.open("GET", "http://localhost:2800/movie/purchased");
     req.send();
     req.onreadystatechange = function() {
-        console.log(this.responseText)
         if (this.readyState == 4 && this.status == 200) {
             let movieCard = ''; 
             const objects = JSON.parse(this.responseText);

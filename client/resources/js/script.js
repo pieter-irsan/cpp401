@@ -27,16 +27,12 @@ if (getCookie('token') != null) {
 
     if (registerBtn && loginBtn) {
         // Change 'Register' button to 'My Movies' button
-        document.getElementById("registerButton").href = "/user/movie.html";
-        document.getElementById("registerButton").innerHTML = `
-            <span class="btn btn-white border border-dark">My Movies</span>
-        `;
+        document.getElementById("registerButton").setAttribute("onclick", "location.href='/user/movie.html'");
+        document.getElementById("registerButton").innerHTML = 'My Movies';
 
         // Change 'Login' button to 'Logout' button
-        document.getElementById("loginButton").removeAttribute('href');
         document.getElementById("loginButton").setAttribute("onclick", "logoutUser()");
-        document.getElementById("loginButton").innerHTML = `
-            <span class="btn btn-white border border-dark">Logout</span>
-        `;
+        document.getElementById("loginButton").innerHTML = 'Logout';
+        document.getElementById("loginButton").className = 'btn btn-white border border-dark bg-danger text-white mx-2';
     }
 }

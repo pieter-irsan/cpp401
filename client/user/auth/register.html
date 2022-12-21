@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/resources/css/style.css">
 </head> 
 <body>
-    <nav class="navbar navbar-light bg-white fixed-top navbar-expand-md border border-dark">
+    <nav class="navbar navbar-light theme-navbar fixed-top navbar-expand-md border border-dark">
         <div class="container-fluid">
 			<a class="navbar-brand" href="/app/index.html">Online Cinema</a>
 
@@ -21,19 +21,15 @@
             <div class="d-md-flex justify-content-md-end">
                 <div class="collapse navbar-collapse" id="navbarContent">
                     <div class="navbar-nav me-1 mb-lg-0">
-                        <a class="nav-item mx-2 my-1" href="/app/index.html">
-                            <span class="btn btn-white border border-dark">Home</span>
-                        </a>
-                        <a id="registerButton" class="nav-item mx-2 my-1" href="/auth/register.html">
-							<span class="btn btn-white border border-dark">Register</span>
-                        </a>
-                        <a id="loginButton" class="nav-item mx-2 my-1" href="/auth/login.html">
-							<span class="btn btn-white border border-dark">Login</span>
-                        </a>
-                        <form class="ms-2 mt-1" action="javascript:void(0)" onsubmit="search()">
+                        <button class="btn btn-white border border-dark bg-white mx-2" onclick="location.href='/app/index.html'">Home</button>
+                        <button id="registerButton" class="btn btn-white border border-dark theme mx-2" onclick="location.href='/auth/register.html'">Register</button>
+                        <button id="loginButton" class="btn btn-white border border-dark bg-white mx-2" onclick="location.href='/auth/login.html'">Login</button>
+                    </div>
+                    <div class="mt-1 ms-2">
+                        <form class="" action="javascript:void(0)" onsubmit="search()">
                             <div class="input-group mb-1">
                                 <input id="searchKeyword" class="form-control border border-dark" required>
-                                <button type="submit" class="btn btn-white border border-dark">Search</button>
+                                <button type="submit" class="btn btn-white theme border border-dark">Search</button>
                             </div>
                         </form>
                     </div>
@@ -51,8 +47,7 @@
 
         <div class="container px-5">
             <div class="row justify-content-center" style="height: 430px;">
-                <div class="col-4 m-4 rounded-3 h-100 border border-dark">
-           <!-- <div class="col-4 m-4 rounded-3 h-100 border border-dark bg-light bg-gradient"> -->
+                <div class="col-4 m-4 rounded-3 h-100 border border-dark theme-navbar">
                     <div class="container-fluid px-3 py-3">
                         <form class="align-items-center" action="javascript:void(0)" onsubmit="registerUser()">
                             <div class="row justify-content-center">
@@ -80,7 +75,7 @@
                                 </div>
                             </div>
                             <div class="row justify-content-center mb-2 mt-4">
-                                <button class="col-4 btn btn-white border border-dark" type="submit">Register</button>
+                                <button class="col-4 btn btn-white border border-dark theme" type="submit">Register</button>
                             </div>
                         </form>
                     </div>                    
