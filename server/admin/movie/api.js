@@ -8,8 +8,8 @@ const pool = db.getPool();
 
 const storage = multer.diskStorage({
     destination: (request, file, setDestination) => {
-        if (file.fieldname == 'poster') setDestination(null, 'media/poster/')
-        if (file.fieldname == 'movie') setDestination(null, 'media/movie/')
+        if (file.fieldname == 'poster') setDestination(null, 'server/media/poster/')
+        if (file.fieldname == 'movie') setDestination(null, 'server/media/movie/')
     },
     filename: (request, file, setFilename) => {
         let fileName = slugify(request.body.title, {

@@ -23,19 +23,19 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 
-app.use('/resources', express.static('../client/resources'));
-app.use('/media', express.static('media'));
+app.use('/resources', express.static('./client/resources'));
+app.use('/media', express.static('./server/media'));
 
 // Client
-app.use('/admin/auth', express.static('../client/admin/auth'));
-app.use('/admin/home', verifyAdmin, express.static('../client/admin/index'));
-app.use('/admin/movie', verifyAdmin, express.static('../client/admin/movie'));
-app.use('/admin/transaction', verifyAdmin, express.static('../client/admin/transaction'));
+app.use('/admin/auth', express.static('./client/admin/auth'));
+app.use('/admin/home', verifyAdmin, express.static('./client/admin/index'));
+app.use('/admin/movie', verifyAdmin, express.static('./client/admin/movie'));
+app.use('/admin/transaction', verifyAdmin, express.static('./client/admin/transaction'));
 
-app.use('/app', express.static('../client/user/app'));
-app.use('/auth', express.static('../client/user/auth'));
-app.use('/user', verifyUser, express.static('../client/user/user'));
-app.use('/purchase', verifyUser, express.static('../client/user/transaction'));
+app.use('/app', express.static('./client/user/app'));
+app.use('/auth', express.static('./client/user/auth'));
+app.use('/user', verifyUser, express.static('./client/user/user'));
+app.use('/purchase', verifyUser, express.static('./client/user/transaction'));
 
 // API
 app.use('/admin', adminAPI);

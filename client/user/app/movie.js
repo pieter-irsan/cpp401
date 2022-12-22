@@ -1,21 +1,21 @@
 const params = (new URL(document.location)).searchParams;
 const id = params.get("id");
 
-function ratingToStar(rating) {
-    if (rating == 1) return "⭐"
-    if (rating == 2) return "⭐⭐"
-    if (rating == 3) return "⭐⭐⭐"
-    if (rating == 4) return "⭐⭐⭐⭐"
-    if (rating == 5) return "⭐⭐⭐⭐⭐"
-}
+// function ratingToStar(rating) {
+//     if (rating == 1) return "⭐"
+//     if (rating == 2) return "⭐⭐"
+//     if (rating == 3) return "⭐⭐⭐"
+//     if (rating == 4) return "⭐⭐⭐⭐"
+//     if (rating == 5) return "⭐⭐⭐⭐⭐"
+// }
 
-function starToRating(star) {
-    if (star == "⭐") return 1
-    if (star == "⭐⭐") return 2
-    if (star == "⭐⭐⭐") return 3
-    if (star == "⭐⭐⭐⭐") return 4
-    if (star == "⭐⭐⭐⭐⭐") return 5
-}
+// function starToRating(star) {
+//     if (star == "⭐") return 1
+//     if (star == "⭐⭐") return 2
+//     if (star == "⭐⭐⭐") return 3
+//     if (star == "⭐⭐⭐⭐") return 4
+//     if (star == "⭐⭐⭐⭐⭐") return 5
+// }
 
 function loadMovieDetailsPage(id) {
     const req = new XMLHttpRequest();
@@ -111,9 +111,18 @@ function loadEditRatingForm(id) {
     req.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             const [object] = JSON.parse(this.responseText);
+
+            count = object['rating']
+
             const ratingForm = `
                 <form class="row justify-content-center px-5 mt-3 mb-4" action="javascript:void(0)" onsubmit="editRating()">
-                    <h1 id="rating" class="text-center mb-4">${ratingToStar(object['rating'])}</h1>
+                    <div class="rating fs-1 text-center mb-4">
+                        <span id="1star" onmouseover="inputRatingStar(this)" onclick="inputRatingStar(this)" class="fa fa-star"></span>
+                        <span id="2star" onmouseover="inputRatingStar(this)" onclick="inputRatingStar(this)" class="fa fa-star"></span>
+                        <span id="3star" onmouseover="inputRatingStar(this)" onclick="inputRatingStar(this)" class="fa fa-star"></span>
+                        <span id="4star" onmouseover="inputRatingStar(this)" onclick="inputRatingStar(this)" class="fa fa-star"></span>
+                        <span id="5star" onmouseover="inputRatingStar(this)" onclick="inputRatingStar(this)" class="fa fa-star"></span>
+                    </div>
                     <textarea id="review" class="border border-dark form-control text-center w-75 py-4-half mb-3" maxlength="300" placeholder="Write your review here..." required>${object['review']}</textarea>
                     <button class="border border-dark btn btn-white theme w-75" type="submit">Submit</button>
                 </form>
@@ -127,8 +136,8 @@ function loadEditRatingForm(id) {
 }
 
 function addRating() {
-	const star = document.getElementById("rating").innerHTML;
-    const rating = starToRating(star);
+	// const star = document.getElementById("rating").innerHTML;
+    const rating = count;
 	const review = document.getElementById("review").value;
 
 	const req = new XMLHttpRequest();
@@ -156,8 +165,8 @@ function addRating() {
 }
 
 function editRating() {
-    const star = document.getElementById("rating").innerHTML;
-    const rating = starToRating(star);
+    // const star = document.getElementById("rating").innerHTML;
+    const rating = count;
 	const review = document.getElementById("review").value;
 		
 	const req = new XMLHttpRequest();
@@ -198,8 +207,15 @@ function deleteRating() {
 	}
 }
 
-function inputRatingStar() {
-    
+let count;
+function inputRatingStar(item) {
+    count = item.id[0];
+    sessionStorage.starRating = count;
+    let subid = item.id.substring(1);
+    for (let i = 0; i < 5; i++) {
+        if (i < count) document.getElementById((i+1) + subid).style.color = "#FDE16D";
+        else document.getElementById((i+1) + subid).style.color = "grey";
+    }
 }
 
 function purchaseMovie() {

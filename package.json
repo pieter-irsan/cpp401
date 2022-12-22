@@ -4,7 +4,7 @@
   "description": "",
   "main": "server/index.js",
   "scripts": {
-    "start": "nodemon server/index.js",
+    "start": "nodemon ./server/index.js",
     "db": "powershell ./server/backup-db.ps1"
   },
   "author": "",

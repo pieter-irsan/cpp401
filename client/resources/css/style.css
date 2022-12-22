@@ -55,3 +55,17 @@
 .w-60 {
   width: 60% !important;
 }
+
+.rating > .fa:hover, .rating > .fa:hover ~ .fa {
+  text-shadow: 0 0 9px rgba(238, 255, 0, 0.788);
+  color: #FDE16D;
+  content: '\2605';
+  position: relative;
+  left: 0;
+}
+
+.fa.rated::before{
+  content: '\2605';
+  color: #FDE16D;
+  font-size: 40px;
+}

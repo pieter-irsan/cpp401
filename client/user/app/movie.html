@@ -8,6 +8,7 @@
     <title>Online Cinema</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/resources/css/style.css">
 </head> 
 <body>
@@ -41,7 +42,7 @@
 
         <div class="row mt-5 mb-5 justify-content-center" id="movieDetails">
             <div class="col-md-3 text-center">
-                <img id="poster" src="/media/poster/${object['poster']}" style="width:95%" />
+                <img id="poster" src="" style="width:95%" />
                 <h4 id="title" class="text-bold"></h4>
                 <h5 id="director"></h5>
                 <h4 id="titleRating" class="mb-3"></h4>
@@ -65,7 +66,7 @@
 <!--
             <div class="col-md-3 text-center">
                 <img src="" style="width:95%" />
-                <i style="display: none">file://C:/Users/piete/Pictures/parasite-poster.jpg</i>
+                <i style="display: nstar">file://C:/Users/piete/Pictures/parasite-poster.jpg</i>
                 <h4 class=""><b>Star Wars: Rise of Skywalker</b></h4>
                 <h5 class="">George Lucas</h5>
                 <h4 class="mb-3">5 ⭐</h4>
@@ -83,7 +84,7 @@
                 <div class="row justify-content-center">
                     <div class="col-auto ratio ratio-16x9" style="width:95%">
                         <iframe src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <i style="display: none">file://C:/Users/piete/Videos/stock_nightsky.mp4</i>
+                        <i style="display: nstar">file://C:/Users/piete/Videos/stock_nightsky.mp4</i>
                     </div>
                 </div>
             </div>
@@ -94,7 +95,14 @@
             <div class="col-6">
                 <div id="ratingForm">
                     <form class="row justify-content-center px-5 mt-3 mb-4" action="javascript:void(0)" onsubmit="addRating()">
-                        <h1 id="rating" class="text-center mb-4">⭐⭐⭐⭐⭐</h1>
+                        <!-- <h1 id="rating" class="text-center mb-4">⭐⭐⭐⭐⭐</h1> -->
+                        <div class="rating fs-1 text-center mb-4">
+                            <span id="1star" onmouseover="inputRatingStar(this)" onclick="inputRatingStar(this)" class="fa fa-star"></span>
+                            <span id="2star" onmouseover="inputRatingStar(this)" onclick="inputRatingStar(this)" class="fa fa-star"></span>
+                            <span id="3star" onmouseover="inputRatingStar(this)" onclick="inputRatingStar(this)" class="fa fa-star"></span>
+                            <span id="4star" onmouseover="inputRatingStar(this)" onclick="inputRatingStar(this)" class="fa fa-star"></span>
+                            <span id="5star" onmouseover="inputRatingStar(this)" onclick="inputRatingStar(this)" class="fa fa-star"></span>
+                        </div>
                         <textarea id="review" class="border border-dark form-control text-center w-75 py-4-half mb-3" maxlength="300" placeholder="Write your review here..." required></textarea>
                         <button class="border border-dark btn btn-white theme w-75" type="submit">Submit</button>
                     </form>
@@ -105,7 +113,7 @@
                 </div>
                     <!-- <div id="myRating" class="col-auto mx-1 mb-1">
                     </div> -->
-                    <!-- <hr id="myRatingSeparator" style="display: none" /> -->
+                    <!-- <hr id="myRatingSeparator" style="display: nstar" /> -->
                 <div id="ratingRow" class="row">
                 </div>
             </div>            
@@ -120,7 +128,7 @@
 <!--
                     <div class="col-auto mx-1 mb-1">
                         <div class="row mb-1 mb-1">
-                            <span class="col-6 fs-5 text-start">user_one</span>
+                            <span class="col-6 fs-5 text-start">user_star</span>
                             <span class="col-6 fs-5 text-end">5 ⭐&nbsp;&nbsp;&nbsp;&nbsp;</span>
                         </div>
                         <p>
